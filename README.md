@@ -1,1 +1,1 @@
-My neovim config with plugins and keymaps.
+Kitty, tmux and neovim (lazyvim) config files.
