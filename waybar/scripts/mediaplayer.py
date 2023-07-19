@@ -35,7 +35,8 @@ def on_metadata(player, metadata, manager):
     track_info = ""
 
     if (
-        player.props.player_name == "spotify"
+        # player.props.player_name == "spotify"
+        player.props.player_name == "spotifyd"
         and "mpris:trackid" in metadata.keys()
         and ":ad:" in player.props.metadata["mpris:trackid"]
     ):

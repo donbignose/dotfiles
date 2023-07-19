@@ -31,18 +31,21 @@ set $rofi_cmd rofi \
 # TODO: add window with the next release of rofi-wayland
 set $menu $rofi_cmd -show drun \
     -theme $dir/$theme.rasi
- 
+
+set $clipboard clipman pick -t rofi -T'-theme /home/donbignose/.config/rofi/launchers/type-1/style-5.rasi'
 set $powermenu /home/donbignose/.config/rofi/scripts/powermenu_t4
 set $lockman exec zsh ~/.config/sway/lockman.sh
 
 ### Start Up applications
-exec swaymsg "workspace 2; exec $browser;"
+workspace 2
+exec $browser
 #Flashfocus indicating current window
 exec_always --no-startup-id $HOME/.local/bin/flashfocus
 # Clipboard
 exec wl-paste -t text --watch clipman store --no-persist
+exec solaar -w hide
 
-# Screen capture
+### Screen capture
 #
 set $screenshot 1 selected, 2 whole, 3 selected clipboard, 4 whole clipboard, 5 swappy
 mode "$screenshot" {
@@ -113,12 +116,19 @@ exec swayidle -w \
 # Read `man 5 sway-input` for more information about this section.
 
 ### No title bar
-for_window [class="^.*"] border pixel 1
-
+for_window [class="^.*"] border pixel 2
+titlebar_border_thickness 2
+default_border pixel 2
 ### Spacing between windows
 gaps inner 5
 gaps outer 5
 
+## Window decoration
+# class                 border  backgr. text    indicator child_border
+client.focused          #7aa2f7 #414868 #c0caf5 #7dcfff   #7aa2f7
+client.focused_inactive #7aa2f7 #414868 #c0caf5 #7dcfff   #7aa2f7
+client.unfocused        #414868 #24283b #a9b1d6 #7dcfff   #414868
+client.urgent           #e0af68 #e0af68 #1d202f #7dcfff   #e0af68
 
 ### Key bindings
 #
@@ -135,6 +145,9 @@ gaps outer 5
 
     # Start Powermenu
     bindsym $mod+p exec $powermenu
+
+    # Start Clipboard Manager
+    bindsym $mod+Shift+v exec $clipboard
 
     # Lock Screen
     # bindsym XF86Sleep exec $lockman
