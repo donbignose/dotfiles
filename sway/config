@@ -17,6 +17,7 @@ set $right l
 # Recommends: foot
 set $term kitty
 set $browser firefox
+set $email thunderbird
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
@@ -35,15 +36,21 @@ set $menu $rofi_cmd -show drun \
 set $clipboard clipman pick -t rofi -T'-theme /home/donbignose/.config/rofi/launchers/type-1/style-5.rasi'
 set $powermenu /home/donbignose/.config/rofi/scripts/powermenu_t4
 set $lockman exec zsh ~/.config/sway/lockman.sh
+set $bluetooth /home/donbignose/.config/rofi/scripts/rofi-bluetooth
 
 ### Start Up applications
+exec waypaper --restore
+workspace 5
+exec $email
 workspace 2
 exec $browser
+workspace 1
+
 #Flashfocus indicating current window
-exec_always --no-startup-id $HOME/.local/bin/flashfocus
+# exec_always --no-startup-id $HOME/.local/bin/flashfocus
+
 # Clipboard
 exec wl-paste -t text --watch clipman store --no-persist
-exec solaar -w hide
 
 ### Screen capture
 #
@@ -145,6 +152,9 @@ client.urgent           #e0af68 #e0af68 #1d202f #7dcfff   #e0af68
 
     # Start Powermenu
     bindsym $mod+p exec $powermenu
+    
+    # bluetooth Manager
+    bindsym $mod+Shift+b exec $bluetooth
 
     # Start Clipboard Manager
     bindsym $mod+Shift+v exec $clipboard

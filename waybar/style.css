@@ -1,11 +1,12 @@
 * {
+  border: none;
+  border-radius: 0;
 	font-family: "Hack Nerd Font";
 	font-size: 15px;
 }
 
 window#waybar {
-	background: #1e2030;
-  border-radius: 7px;
+	background: #12131a;
 	min-height: 0;
 }
 
@@ -17,6 +18,10 @@ window#waybar {
   border-bottom-left-radius: 8px;
 	background: #1e2030;
   color: #e5e9f0;
+  margin: 5px;
+  margin-left: 6px;  
+  background-color: #1d202e;
+  border-radius: 5px;
 }
 
 

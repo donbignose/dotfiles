@@ -4,7 +4,7 @@
 	"height": 32,
 	"modules-left": ["sway/workspaces", "sway/window", "custom/spotify"],
 	"modules-center": ["clock", "custom/weather"],
-	"modules-right": ["pulseaudio#output", "disk", "memory", "cpu", "temperature", "network", "custom/divider", "tray"],
+	"modules-right": ["idle_inhibitor", "rofibluetooth", "pulseaudio#output", "disk", "memory", "cpu", "temperature", "network", "custom/divider", "tray"],
 
 	// Left Modules
 	"sway/workspaces": {
@@ -82,8 +82,8 @@
     "pulseaudio#output": {
         "scroll-step": 5, // %, can be a float
         "format": "{icon} {volume}%",
-        //"format-bluetooth": "{volume}% {icon}  {format_source}",
-        //"format-bluetooth-muted": " {icon}  {format_source}",
+        "format-bluetooth": "{volume}% {icon}  {format_source}",
+        "format-bluetooth-muted": " {icon}  {format_source}",
         "format-muted": "",
         "format-icons": {
             "headphone": "󰋋 ",
@@ -98,6 +98,19 @@
         "on-click-right": "pavucontrol",
         "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +2%",
         "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -2%",
+    },
+
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+
+    "rofibluetooth": {
+      "format": "",
+      "on-click": "rofi-bluetooth",
     },
 
     "disk": {
