@@ -5,5 +5,6 @@ return {
   version = "*",
   opts = {
     persist_timer = true,
+    minute_interval = 40,
   },
 }
