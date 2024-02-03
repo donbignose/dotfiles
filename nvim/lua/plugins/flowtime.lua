@@ -1,6 +1,5 @@
 return {
-  "flowtime.nvim",
-  name = "flowtime",
+  "donbignose/flowtime.nvim",
   dev = true,
   config = function()
     require("flowtime")
