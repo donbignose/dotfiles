@@ -60,5 +60,5 @@ customCommands:
         title: "Footer for referencing (optional)"
         key: Footer
         initialValue: ""
-    command: 'git commit -m ''{{.Form.CommitType}}{{if .Form.Scope}}({{.Form.Scope}}){{end}}: {{.Form.CommitMessage}}'' -m "$(echo ''{{.Form.CommitDescription}}'' | fmt -w 72)" -m ''{{.Form.Footer}}'''
+    command: 'git commit -m ''{{.Form.CommitType}}({{.Form.Scope}}){{.Form.Breaking}}: {{.Form.CommitMessage}}'' -m "$(echo ''{{.Form.CommitDescription}}'' | fmt -w 72)" -m ''{{.Form.Footer}}'''
     loadingText: "Committing changes"
