@@ -62,3 +62,8 @@ customCommands:
         initialValue: ""
     command: 'git commit -m ''{{.Form.CommitType}}({{.Form.Scope}}){{.Form.Breaking}}: {{.Form.CommitMessage}}'' -m "$(echo ''{{.Form.CommitDescription}}'' | fmt -w 72)" -m ''{{.Form.Footer}}'''
     loadingText: "Committing changes"
+  - key: "<c-t>"
+    description: "Commitizen bump"
+    command: "cz bump && git push && git push --tags"
+    context: "global"
+    loadingText: "bumping to the next version"
