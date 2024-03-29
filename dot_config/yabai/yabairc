@@ -4,11 +4,11 @@ yabai -m config layout bsp
 yabai -m config window_placement second_child
 
 # padding set to 12px
-yabai -m config top_padding 12
-yabai -m config bottom_padding 12
-yabai -m config left_padding 12
-yabai -m config right_padding 12
-yabai -m config window_gap 12
+yabai -m config top_padding 9
+yabai -m config bottom_padding 9
+yabai -m config left_padding 9
+yabai -m config right_padding 9
+yabai -m config window_gap 9
 
 # center mouse on window with focus
 yabai -m config mouse_follows_focus on
@@ -29,4 +29,4 @@ yabai -m rule --add app="^Karabiner-Elements$" manage=off
 yabai -m rule --add app="^Alfred Preferences$" manage=off
 
 # JankyBorder
-borders active_color=0xffe1e3e4 inactive_color=0xff494d64 width=5.0 &
+borders active_color=0xffecdbb2 inactive_color=0xff494d64 width=5.0 &
