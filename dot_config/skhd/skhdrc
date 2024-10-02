@@ -1,3 +1,5 @@
+# change window tiling mode
+ctrl + shift - space : yabai -m space --layout "$(yabai -m query --spaces --space | jq -r 'if .type == "bsp" then "stack" else "bsp" end')"
 # change window focus within space
 alt - j : yabai -m window --focus south
 alt - k : yabai -m window --focus north
