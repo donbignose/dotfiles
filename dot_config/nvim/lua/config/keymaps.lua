@@ -3,8 +3,6 @@
 -- Add any additional keymaps here
 local set = vim.keymap.set
 set("n", "J", "mzJ`z")
-set("n", "<C-d>", "<C-d>zz")
-set("n", "<C-u>", "<C-u>zz")
 set("n", "<C-h>", "<Cmd>NvimTmuxNavigateLeft<CR>", { silent = true })
 set("n", "<C-j>", "<Cmd>NvimTmuxNavigateDown<CR>", { silent = true })
 set("n", "<C-k>", "<Cmd>NvimTmuxNavigateUp<CR>", { silent = true })

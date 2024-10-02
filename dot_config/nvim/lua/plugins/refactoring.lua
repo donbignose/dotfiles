@@ -4,13 +4,14 @@ return {
     "nvim-lua/plenary.nvim",
     "nvim-treesitter/nvim-treesitter",
   },
+  enable = false,
   config = function()
     require("refactoring").setup()
   end,
   keys = {
     {
       mode = { "x" },
-      "<leader>re",
+      "<leader>cRe",
       function()
         require("refactoring").refactor("Extract Function")
       end,
@@ -18,7 +19,7 @@ return {
     },
     {
       mode = { "x" },
-      "<leader>rf",
+      "<leader>cRf",
       function()
         require("refactoring").refactor("Extract Function To File")
       end,
@@ -26,7 +27,7 @@ return {
     },
     {
       mode = { "x" },
-      "<leader>rv",
+      "<leader>cRv",
       function()
         require("refactoring").refactor("Extract Variable")
       end,
@@ -34,7 +35,7 @@ return {
     },
     {
       mode = { "n" },
-      "<leader>rI",
+      "<leader>cRI",
       function()
         require("refactoring").refactor("Inline Function")
       end,
@@ -42,7 +43,7 @@ return {
     },
     {
       mode = { "n", "x" },
-      "<leader>ri",
+      "<leader>cRi",
       function()
         require("refactoring").refactor("Inline Variable")
       end,
@@ -50,7 +51,7 @@ return {
     },
     {
       mode = { "n" },
-      "<leader>rb",
+      "<leader>cRb",
       function()
         require("refactoring").refactor("Extract Block")
       end,
@@ -58,7 +59,7 @@ return {
     },
     {
       mode = { "n" },
-      "<leader>rbf",
+      "<leader>cRbf",
       function()
         require("refactoring").refactor("Extract Block To File")
       end,

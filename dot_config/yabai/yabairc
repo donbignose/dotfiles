@@ -30,3 +30,6 @@ yabai -m rule --add app="^Alfred Preferences$" manage=off
 
 # JankyBorder
 borders active_color=0xffecdbb2 inactive_color=0xff494d64 width=5.0 &
+
+# Sketchybar
+yabai -m config external_bar all:31:0
