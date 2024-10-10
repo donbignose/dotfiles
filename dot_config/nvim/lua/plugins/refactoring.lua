@@ -4,7 +4,7 @@ return {
     "nvim-lua/plenary.nvim",
     "nvim-treesitter/nvim-treesitter",
   },
-  enable = false,
+  enabled = false,
   config = function()
     require("refactoring").setup()
   end,
