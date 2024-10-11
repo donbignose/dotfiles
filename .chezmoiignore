@@ -1,0 +1,11 @@
+{{ if ne .chezmoi.os "darwin" }}
+.config/skhd/
+.config/yabai/
+{{ end }}
+
+{{ if ne .chezmoi.os "linux" }}
+.config/sway/
+.config/waybar/
+.config/kitty/
+{{ end }}
+
