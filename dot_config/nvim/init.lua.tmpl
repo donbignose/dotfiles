@@ -2,6 +2,12 @@ vim.g.python3_host_prog = "/Users/donbignose/.pyenv/versions/nvim/bin/python"
 -- bootstrap lazy.nvim, LazyVim and your plugins
 require("config.lazy")
 require("venv-selector").setup({
-  -- poetry_path = "/home/donbignose/.cache/pypoetry/virtualenvs/",
+  
+  {{- if eq .chezmoi.os "darwin" }}
   poetry_path = "/Users/donbignose/Library/Caches/pypoetry/virtualenvs",
+  {{- end }}
+
+  {{- if eq .chezmoi.os "linux" }}
+  poetry_path = "/home/donbignose/.cache/pypoetry/virtualenvs/",
+  {{- end }}
 })

@@ -9,10 +9,12 @@ return {
       vim.g.gruvbox_material_transparent_background = 1
     end,
   },
-  {
-    "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "gruvbox-material",
+  {{- if eq .chezmoi.os "darwin" }}
+    {
+      "LazyVim/LazyVim",
+      opts = {
+        colorscheme = "gruvbox-material",
+      },
     },
-  },
+  {{- end }}
 }
