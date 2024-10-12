@@ -1,6 +1,7 @@
 {{ if ne .chezmoi.os "darwin" }}
 .config/skhd/
 .config/yabai/
+.config/sketchybar/
 {{ end }}
 
 {{ if ne .chezmoi.os "linux" }}
