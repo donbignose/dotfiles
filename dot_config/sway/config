@@ -6,6 +6,9 @@
 
 ### Variables
 #
+# Background images
+set $homescreen /home/donbignose/Pictures/wp2740156-berserk-guts-wallpaper.jpg
+set $lockscreen /home/donbignose/Pictures/wp2740156-berserk-guts-wallpaper.jpg
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
 # Home row direction keys, like vim
@@ -35,7 +38,7 @@ set $menu $rofi_cmd -show drun \
 
 set $clipboard clipman pick -t rofi -T'-theme /home/donbignose/.config/rofi/launchers/type-1/style-5.rasi'
 set $powermenu /home/donbignose/.config/rofi/scripts/powermenu_t4
-set $lockman exec zsh ~/.config/sway/lockman.sh
+set $lockman exec zsh ~/.config/sway/lockman.sh $lockscreen
 set $bluetooth /home/donbignose/.config/rofi/scripts/rofi-bluetooth
 
 ### Start Up applications
@@ -85,7 +88,7 @@ bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 # Requires: desktop-backgrounds-compat, swaybg
-output * bg /home/donbignose/Pictures/wp2740156-berserk-guts-wallpaper.jpg fill
+output * bg $homescreen fill
 #
 # Example configuration:
 #
@@ -101,9 +104,9 @@ output DP-1 resolution 2560x1440@144Hz adaptive_sync on
 # Example configuration:
 #
 exec swayidle -w \
-         timeout 300 'swaylock -f -c 000000' \
+         timeout 300 'swaylock -f -c 000000 -i $lockscreen' \
          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-         before-sleep 'swaylock -f -c 000000'
+         before-sleep 'swaylock -f -c 000000 -i $lockscreen'
 
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
