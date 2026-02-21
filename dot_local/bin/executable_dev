@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+# Usage: dev [session-name] [directory]
+#   session-name defaults to the current directory's basename
+#   directory defaults to $PWD
+
+set -e
+
+DIR="${2:-$PWD}"
+SESSION="${1:-$(basename "$DIR")}"
+
+if tmux has-session -t "$SESSION" 2>/dev/null; then
+  tmux attach-session -t "$SESSION"
+  exit 0
+fi
+
+# Create detached session, first window named "edit"
+tmux new-session -d -s "$SESSION" -n "edit" -c "$DIR"
+
+# Left pane: nvim
+tmux send-keys -t "$SESSION:edit" "nvim" Enter
+
+# Right pane: shell (~35% width)
+tmux split-window -h -t "$SESSION:edit" -p 35 -c "$DIR"
+
+# Focus back to nvim
+tmux select-pane -t "$SESSION:edit.left"
+
+tmux attach-session -t "$SESSION"
