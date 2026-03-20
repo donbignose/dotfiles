@@ -15,4 +15,5 @@ plan.md
 .config/kitty/
 .config/dunst/
 .config/fuzzel/
+run_once_install-packages-linux.sh
 {{ end }}

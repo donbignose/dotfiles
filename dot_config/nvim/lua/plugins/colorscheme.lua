@@ -7,11 +7,6 @@ return {
     opts = {
       theme = "wave",
       transparent = false,
-      integrations = {
-        gitsigns = true,
-        telescope = true,
-        treesitter = true,
-      },
     },
     config = function(_, opts)
       require("kanagawa").setup(opts)
