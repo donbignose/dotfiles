@@ -50,6 +50,7 @@ if [[ "$PM" == "pacman" ]]; then
         clipman
 
         # CLI tools
+        python
         eza
         bat
         btop
@@ -104,6 +105,7 @@ elif [[ "$PM" == "apt" ]]; then
         bat
         btop
         tmux
+        python3
         neovim
         ripgrep
         fd-find
