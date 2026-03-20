@@ -1,0 +1,76 @@
+# Starship Prompt — Kanagawa Wave
+
+format = """
+[](#7E9CD8)\
+$os\
+[](bg:#957FB8 fg:#7E9CD8)\
+$directory\
+[](bg:#76946A fg:#957FB8)\
+$git_branch\
+$git_status\
+[](bg:#DCA561 fg:#76946A)\
+$nodejs\
+$python\
+$rust\
+$golang\
+[](bg:#6A9589 fg:#DCA561)\
+$cmd_duration\
+[](fg:#6A9589)\
+$line_break\
+$character"""
+
+[os]
+disabled = false
+style = "bg:#7E9CD8 fg:#1F1F28"
+
+[os.symbols]
+Arch = "󰣇 "
+Ubuntu = " "
+Fedora = " "
+Macos = " "
+Linux = " "
+Windows = "󰍲 "
+
+[directory]
+style = "bg:#957FB8 fg:#1F1F28"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[git_branch]
+style = "bg:#76946A fg:#1F1F28"
+format = "[ $symbol$branch ]($style)"
+symbol = " "
+
+[git_status]
+style = "bg:#76946A fg:#1F1F28"
+format = "[$all_status$ahead_behind ]($style)"
+
+[nodejs]
+style = "bg:#DCA561 fg:#1F1F28"
+format = "[ $symbol($version) ]($style)"
+symbol = " "
+
+[python]
+style = "bg:#DCA561 fg:#1F1F28"
+format = "[ $symbol($version) ]($style)"
+symbol = " "
+
+[rust]
+style = "bg:#DCA561 fg:#1F1F28"
+format = "[ $symbol($version) ]($style)"
+symbol = "🦀 "
+
+[golang]
+style = "bg:#DCA561 fg:#1F1F28"
+format = "[ $symbol($version) ]($style)"
+symbol = " "
+
+[cmd_duration]
+style = "bg:#6A9589 fg:#1F1F28"
+format = "[ 󰔛 $duration ]($style)"
+min_time = 2_000
+
+[character]
+success_symbol = "[❯](bold #76946A)"
+error_symbol = "[❯](bold #C34043)"

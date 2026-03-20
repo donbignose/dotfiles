@@ -1,0 +1,56 @@
+# ╔══════════════════════════════════════════════════════════════╗
+# ║                        Zsh Config                          ║
+# ╚══════════════════════════════════════════════════════════════╝
+
+# ── PATH ─────────────────────────────────────────────────────
+export PATH="$HOME/.local/bin:$PATH"
+
+# ── History ──────────────────────────────────────────────────
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_SPACE
+setopt SHARE_HISTORY
+setopt APPEND_HISTORY
+
+# ── Vi mode ──────────────────────────────────────────────────
+bindkey -v
+export KEYTIMEOUT=1
+
+# ── Editor ───────────────────────────────────────────────────
+export EDITOR="nvim"
+export VISUAL="nvim"
+
+# ── Aliases ──────────────────────────────────────────────────
+# Modern replacements
+alias ls="eza --icons"
+alias ll="eza -la --icons"
+alias lt="eza --tree --icons --level=2"
+alias cat="bat"
+
+# Git
+alias gs="git status"
+alias ga="git add"
+alias gc="git commit"
+alias gp="git push"
+alias gl="git log --oneline --graph"
+alias gd="git diff"
+alias lg="lazygit"
+
+# System
+alias ..="cd .."
+alias ...="cd ../.."
+alias grep="grep --color=auto"
+
+# ── Plugins ──────────────────────────────────────────────────
+# zsh-autosuggestions
+[[ -f /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]] && \
+  source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# zsh-syntax-highlighting (must be last)
+[[ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] && \
+  source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# ── Starship Prompt ──────────────────────────────────────────
+eval "$(starship init zsh)"

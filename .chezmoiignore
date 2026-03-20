@@ -1,6 +1,7 @@
 # Repo-only files, not deployed
 CLAUDE.md
 .claude/
+plan.md
 
 {{ if ne .chezmoi.os "darwin" }}
 .config/skhd/
@@ -9,8 +10,9 @@ CLAUDE.md
 {{ end }}
 
 {{ if ne .chezmoi.os "linux" }}
-.config/sway/
+.config/hypr/
 .config/waybar/
 .config/kitty/
+.config/dunst/
+.config/fuzzel/
 {{ end }}
-
