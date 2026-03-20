@@ -60,6 +60,21 @@ if [[ "$PM" == "pacman" ]]; then
         ripgrep
         fd
 
+        # Dev tools
+        docker
+        docker-compose
+        git
+        gcc
+        make
+        nodejs
+        npm
+        go
+        jq
+        curl
+        wget
+        openssh
+        unzip
+
         # Audio
         pipewire
         wireplumber
@@ -109,6 +124,21 @@ elif [[ "$PM" == "apt" ]]; then
         neovim
         ripgrep
         fd-find
+        # Dev tools
+        docker.io
+        docker-compose
+        git
+        gcc
+        make
+        nodejs
+        npm
+        golang-go
+        jq
+        curl
+        wget
+        openssh-client
+        unzip
+
         pipewire
         wireplumber
         pavucontrol
@@ -126,6 +156,18 @@ elif [[ "$PM" == "apt" ]]; then
 fi
 
 # ── Post-install ─────────────────────────────────────────────
+
+# Enable and start Docker
+if command -v docker &>/dev/null; then
+    sudo systemctl enable --now docker
+    sudo usermod -aG docker "$USER"
+fi
+
+# Install Rust via rustup if not present
+if ! command -v rustup &>/dev/null; then
+    echo "Installing Rust via rustup..."
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+fi
 
 # Set zsh as default shell if not already
 if [[ "$SHELL" != *"zsh"* ]]; then
@@ -148,4 +190,5 @@ echo "  Done! Remember to:"
 echo "  1. Place wallpaper at ~/Pictures/wallpaper.jpg"
 echo "  2. Log out and select Hyprland as session"
 echo "  3. Run 'tmux' and press prefix+I to install plugins"
+echo "  4. Log out/in for docker group to take effect"
 echo "══════════════════════════════════════════════════"
