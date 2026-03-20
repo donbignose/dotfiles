@@ -47,7 +47,6 @@ if [[ "$PM" == "pacman" ]]; then
         grim
         slurp
         wl-clipboard
-        clipman
 
         # CLI tools
         python
@@ -92,6 +91,7 @@ if [[ "$PM" == "pacman" ]]; then
 
     # ── AUR packages (requires yay or paru) ──────────
     AUR_PACKAGES=(
+        clipman
         zsh-autosuggestions
         zsh-syntax-highlighting
     )
