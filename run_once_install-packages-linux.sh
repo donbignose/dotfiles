@@ -82,6 +82,11 @@ if [[ "$PM" == "pacman" ]]; then
         # Font
         ttf-jetbrains-mono-nerd
 
+        # Display manager
+        sddm
+        qt5-graphicaleffects
+        qt5-quickcontrols2
+
         # Misc
         playerctl
     )
@@ -156,6 +161,12 @@ elif [[ "$PM" == "apt" ]]; then
 fi
 
 # ── Post-install ─────────────────────────────────────────────
+
+# Enable SDDM display manager
+if command -v sddm &>/dev/null; then
+    echo "Enabling SDDM display manager..."
+    sudo systemctl enable sddm
+fi
 
 # Enable and start Docker
 if command -v docker &>/dev/null; then
