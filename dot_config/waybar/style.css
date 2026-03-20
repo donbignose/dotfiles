@@ -1,29 +1,26 @@
+/* Kanagawa Wave — Waybar */
+
 * {
   border: none;
   border-radius: 0;
-	font-family: "Hack Nerd Font";
+	font-family: "JetBrains Mono Nerd Font";
 	font-size: 15px;
 }
 
 window#waybar {
-	background: #12131a;
+	background: #16161D;
 	min-height: 0;
 }
 
 /* Groups */
 
 .modules-left, .modules-center, .modules-right {
-	/* border: #6900ff 2px solid; */
-  border-bottom-right-radius: 8px;
-  border-bottom-left-radius: 8px;
-	background: #1e2030;
-  color: #e5e9f0;
-  margin: 5px;
-  margin-left: 6px;  
-  background-color: #1d202e;
   border-radius: 5px;
+	background: #1F1F28;
+  color: #DCD7BA;
+  margin: 5px;
+  margin-left: 6px;
 }
-
 
 /* Label Customization */
 
@@ -44,56 +41,75 @@ button label {
 }
 
 #workspaces button {
-	color: #d8dee9;
+	color: #727169;
 	margin: 0;
 	padding: 2 2px;
 }
 
 #workspaces button.active {
-	color: #81a1c1;
+	color: #7E9CD8;
+}
+
+#workspaces button.urgent {
+	color: #C34043;
 }
 
 #window {
-  color: #e5e9f0;
+  color: #DCD7BA;
 }
 
 #clock {
-	color: #e5e9f0;
+	color: #DCD7BA;
 }
 
 #idle_inhibitor {
-	color: #d8dee9;
+	color: #727169;
+}
+
+#idle_inhibitor.activated {
+	color: #DCA561;
 }
 
 #pulseaudio.output {
-	color: #ff2160;
+	color: #D27E99;
 }
 
 #disk {
-  color: #ff21a6;
+  color: #957FB8;
 }
 
 #memory {
-	color: #de21ff;
+	color: #7E9CD8;
+}
+
+#memory.warning {
+	color: #DCA561;
+}
+
+#memory.critical {
+	color: #C34043;
 }
 
 #cpu {
-  color: #9621FF
+  color: #6A9589;
 }
 
 #temperature {
-	color: #7221ff;
+	color: #7AA89F;
+}
+
+#temperature.critical {
+	color: #C34043;
 }
 
 #network {
-	color: #3321ff;
+	color: #FFA066;
 }
 
 #tray {
-	color: #eceff4;
+	color: #C8C093;
 }
 
-#custom-logout {
-	color: #eceff4;
-	font-size: 12px;
+#custom-divider {
+	color: #54546D;
 }
