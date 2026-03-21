@@ -1,0 +1,48 @@
+#!/bin/bash
+# Screenshot & Screen Recording Menu via Fuzzel
+
+SCREENSHOT_DIR="$HOME/Pictures/Screenshots"
+RECORDING_DIR="$HOME/Videos/Recordings"
+mkdir -p "$SCREENSHOT_DIR" "$RECORDING_DIR"
+
+TIMESTAMP=$(date +"%Y%m%d_%H%M%S")
+
+# Check if already recording
+if pgrep -x wf-recorder > /dev/null; then
+    killall -SIGINT wf-recorder
+    notify-send "Recording saved" "$RECORDING_DIR" -i camera-video
+    exit 0
+fi
+
+CHOICE=$(printf "󰹑  Area → Save\n󰍹  Screen → Save\n󰆏  Area → Clipboard\n󰶟  Screen → Clipboard\n󰖯  Window → Save\n  Record Area\n  Record Screen\n  Stop Recording" | fuzzel --dmenu --prompt="Screenshot ❯ " --width=30 --lines=8)
+
+case "$CHOICE" in
+    "󰹑  Area → Save")
+        grimblast --freeze save area "$SCREENSHOT_DIR/screenshot_$TIMESTAMP.png"
+        ;;
+    "󰍹  Screen → Save")
+        grimblast save output "$SCREENSHOT_DIR/screenshot_$TIMESTAMP.png"
+        ;;
+    "󰆏  Area → Clipboard")
+        grimblast --freeze copy area
+        ;;
+    "󰶟  Screen → Clipboard")
+        grimblast copy output
+        ;;
+    "󰖯  Window → Save")
+        grimblast --freeze save active "$SCREENSHOT_DIR/screenshot_$TIMESTAMP.png"
+        ;;
+    "  Record Area")
+        GEOM=$(slurp)
+        [ -n "$GEOM" ] && wf-recorder -g "$GEOM" -f "$RECORDING_DIR/recording_$TIMESTAMP.mp4" &
+        notify-send "Recording started" "Press Super+Shift+P to stop" -i camera-video
+        ;;
+    "  Record Screen")
+        wf-recorder -f "$RECORDING_DIR/recording_$TIMESTAMP.mp4" &
+        notify-send "Recording started" "Press Super+Shift+P to stop" -i camera-video
+        ;;
+    "  Stop Recording")
+        killall -SIGINT wf-recorder 2>/dev/null
+        notify-send "Recording saved" "$RECORDING_DIR" -i camera-video
+        ;;
+esac

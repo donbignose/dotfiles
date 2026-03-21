@@ -49,6 +49,7 @@ if [[ "$PM" == "pacman" ]]; then
         grim
         slurp
         wl-clipboard
+        wf-recorder
         cliphist
 
         # CLI tools
