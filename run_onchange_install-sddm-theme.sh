@@ -1,6 +1,6 @@
 #!/bin/bash
 # ╔══════════════════════════════════════════════════════════════╗
-# ║       SDDM Kanagawa Theme — deployed by chezmoi             ║
+# ║    SDDM Astronaut Theme — Kanagawa Wave config              ║
 # ║   Re-runs automatically when this script's content changes  ║
 # ╚══════════════════════════════════════════════════════════════╝
 
@@ -9,393 +9,112 @@ set -euo pipefail
 [[ "$(uname)" != "Linux" ]] && exit 0
 command -v sddm &>/dev/null || exit 0
 
-THEME_DIR="/usr/share/sddm/themes/kanagawa"
+THEME_DIR="/usr/share/sddm/themes/sddm-astronaut-theme"
 
-echo "Installing Kanagawa SDDM theme..."
-sudo mkdir -p "$THEME_DIR"
-
-# ── metadata.desktop ───────────────────────────────────────────
-sudo tee "$THEME_DIR/metadata.desktop" > /dev/null << 'METADATA'
-[SddmGreeterTheme]
-Name=Kanagawa
-Description=Minimal Kanagawa Wave theme for SDDM
-Author=donbignose
-License=MIT
-Type=sddm-theme
-Version=1.0
-MainScript=Main.qml
-ConfigFile=theme.conf
-Theme-Id=kanagawa
-Theme-API=2.0
-METADATA
+# ── Clean up old custom kanagawa theme if present ──
+[[ -d "/usr/share/sddm/themes/kanagawa" ]] && sudo rm -rf /usr/share/sddm/themes/kanagawa
 
 # ── Copy wallpaper into theme directory (SDDM can't read /home) ──
 if [[ -f "$HOME/Pictures/wallpaper.png" ]]; then
-    sudo cp "$HOME/Pictures/wallpaper.png" "$THEME_DIR/background.png"
+    sudo cp "$HOME/Pictures/wallpaper.png" "$THEME_DIR/Backgrounds/kanagawa.png"
+    BG_FILE="Backgrounds/kanagawa.png"
 elif [[ -f "$HOME/Pictures/wallpaper.jpg" ]]; then
-    sudo cp "$HOME/Pictures/wallpaper.jpg" "$THEME_DIR/background.jpg"
+    sudo cp "$HOME/Pictures/wallpaper.jpg" "$THEME_DIR/Backgrounds/kanagawa.jpg"
+    BG_FILE="Backgrounds/kanagawa.jpg"
+else
+    BG_FILE="Backgrounds/japanese_aesthetic.png"
 fi
 
-# ── theme.conf ─────────────────────────────────────────────────
-sudo tee "$THEME_DIR/theme.conf" > /dev/null << THEMECONF
+# ── Write Kanagawa theme config ────────────────────────────────
+sudo tee "$THEME_DIR/Themes/kanagawa.conf" > /dev/null << CONF
 [General]
-background=$THEME_DIR/background.png
-THEMECONF
+#################### General ####################
 
-# ── Main.qml ──────────────────────────────────────────────────
-sudo tee "$THEME_DIR/Main.qml" > /dev/null << 'QML'
-import QtQuick 2.15
-import QtQuick.Controls 2.15
-import QtGraphicalEffects 1.0
-import SddmComponents 2.0
+Font="JetBrains Mono Nerd Font"
+FontSize=""
+RoundCorners="12"
 
-Rectangle {
-    id: root
-    width: 1920
-    height: 1080
+Locale=""
+HourFormat="HH:mm"
+DateFormat="dddd, d MMMM"
 
-    // Kanagawa Wave palette
-    readonly property color bgDark:     "#1F1F28"
-    readonly property color bgDarker:   "#16161D"
-    readonly property color fg:         "#DCD7BA"
-    readonly property color fgMuted:    "#727169"
-    readonly property color accent:     "#98BB6C"
-    readonly property color red:        "#C34043"
-    readonly property color surface:    "#2A2A37"
-    readonly property color border:     "#54546D"
+HeaderText=""
 
-    property int sessionIndex: session.index
+#################### Background ####################
 
-    TextConstants { id: textConstants }
+Background="$BG_FILE"
+DimBackground="0.3"
+CropBackground="true"
 
-    Connections {
-        target: sddm
-        onLoginSucceeded: {
-            statusMsg.color = root.accent
-            statusMsg.text = textConstants.loginSucceeded
-        }
-        onLoginFailed: {
-            passwordField.text = ""
-            statusMsg.color = root.red
-            statusMsg.text = textConstants.loginFailed
-        }
-        onInformationMessage: {
-            statusMsg.color = root.red
-            statusMsg.text = message
-        }
-    }
+#################### Colors ####################
 
-    // Wallpaper background
-    Background {
-        id: wallpaper
-        anchors.fill: parent
-        source: config.background
-        fillMode: Image.PreserveAspectCrop
-        onStatusChanged: {
-            if (status == Image.Error && source != config.defaultBackground) {
-                source = config.defaultBackground
-            }
-        }
-    }
+HeaderTextColor="#DCD7BA"
+DateTextColor="#727169"
+TimeTextColor="#DCD7BA"
 
-    // Blur the wallpaper
-    FastBlur {
-        anchors.fill: parent
-        source: wallpaper
-        radius: 48
-    }
+FormBackgroundColor="#1F1F28"
+BackgroundColor="#1F1F28"
+DimBackgroundColor="#16161D"
 
-    // Dark overlay
-    Rectangle {
-        anchors.fill: parent
-        color: root.bgDark
-        opacity: 0.55
-    }
+LoginFieldBackgroundColor="#2A2A37"
+PasswordFieldBackgroundColor="#2A2A37"
+LoginFieldTextColor="#DCD7BA"
+PasswordFieldTextColor="#DCD7BA"
+UserIconColor="#727169"
+PasswordIconColor="#727169"
 
-    // Clock at top
-    Text {
-        id: clock
-        anchors.top: parent.top
-        anchors.topMargin: 60
-        anchors.horizontalCenter: parent.horizontalCenter
-        color: root.fg
-        font.family: "JetBrains Mono Nerd Font"
-        font.pixelSize: 72
-        font.weight: Font.Light
-        text: Qt.formatTime(new Date(), "HH:mm")
+PlaceholderTextColor="#727169"
+WarningColor="#C34043"
 
-        Timer {
-            interval: 30000
-            running: true
-            repeat: true
-            onTriggered: clock.text = Qt.formatTime(new Date(), "HH:mm")
-        }
-    }
+LoginButtonTextColor="#1F1F28"
+LoginButtonBackgroundColor="#98BB6C"
+SystemButtonsIconsColor="#727169"
+SessionButtonTextColor="#727169"
+VirtualKeyboardButtonTextColor="#727169"
 
-    Text {
-        id: dateText
-        anchors.top: clock.bottom
-        anchors.topMargin: 4
-        anchors.horizontalCenter: parent.horizontalCenter
-        color: root.fgMuted
-        font.family: "JetBrains Mono Nerd Font"
-        font.pixelSize: 16
-        text: Qt.formatDate(new Date(), "dddd, d MMMM")
-    }
+DropdownTextColor="#DCD7BA"
+DropdownSelectedBackgroundColor="#2A2A37"
+DropdownBackgroundColor="#1F1F28"
 
-    // Login card
-    Rectangle {
-        id: card
-        width: 340
-        height: cardColumn.implicitHeight + 60
-        anchors.centerIn: parent
-        color: root.bgDark
-        radius: 12
-        border.width: 1
-        border.color: root.border
-        opacity: 0.92
+HighlightTextColor="#DCD7BA"
+HighlightBackgroundColor="#98BB6C"
+HighlightBorderColor="#54546D"
 
-        Column {
-            id: cardColumn
-            anchors.centerIn: parent
-            width: parent.width - 60
-            spacing: 16
+HoverUserIconColor="#DCD7BA"
+HoverPasswordIconColor="#DCD7BA"
+HoverSystemButtonsIconsColor="#DCD7BA"
+HoverSessionButtonTextColor="#DCD7BA"
+HoverVirtualKeyboardButtonTextColor="#DCD7BA"
 
-            // User greeting
-            Text {
-                anchors.horizontalCenter: parent.horizontalCenter
-                text: "Welcome"
-                color: root.fg
-                font.family: "JetBrains Mono Nerd Font"
-                font.pixelSize: 20
-                font.weight: Font.DemiBold
-            }
+#################### Form ####################
 
-            // Username field
-            TextField {
-                id: nameField
-                width: parent.width
-                height: 40
-                placeholderText: "Username"
-                text: userModel.lastUser
-                font.family: "JetBrains Mono Nerd Font"
-                font.pixelSize: 13
-                color: root.fg
-                selectionColor: root.accent
-                leftPadding: 12
+PartialBlur="true"
+FullBlur="false"
+BlurMax="48"
+Blur="2.0"
 
-                background: Rectangle {
-                    color: root.surface
-                    radius: 6
-                    border.width: nameField.activeFocus ? 2 : 1
-                    border.color: nameField.activeFocus ? root.accent : root.border
-                }
+HaveFormBackground="true"
+FormPosition="left"
 
-                placeholderTextColor: root.fgMuted
+#################### Interface Behavior ####################
 
-                KeyNavigation.tab: passwordField
-                Keys.onReturnPressed: sddm.login(nameField.text, passwordField.text, sessionIndex)
-            }
+HideVirtualKeyboard="true"
+HideSystemButtons="false"
+HideLoginButton="false"
 
-            // Password field
-            TextField {
-                id: passwordField
-                width: parent.width
-                height: 40
-                placeholderText: "Password"
-                echoMode: TextInput.Password
-                font.family: "JetBrains Mono Nerd Font"
-                font.pixelSize: 13
-                color: root.fg
-                selectionColor: root.accent
-                leftPadding: 12
-
-                background: Rectangle {
-                    color: root.surface
-                    radius: 6
-                    border.width: passwordField.activeFocus ? 2 : 1
-                    border.color: passwordField.activeFocus ? root.accent : root.border
-                }
-
-                placeholderTextColor: root.fgMuted
-
-                KeyNavigation.tab: loginButton
-                Keys.onReturnPressed: sddm.login(nameField.text, passwordField.text, sessionIndex)
-            }
-
-            // Status message
-            Text {
-                id: statusMsg
-                anchors.horizontalCenter: parent.horizontalCenter
-                font.family: "JetBrains Mono Nerd Font"
-                font.pixelSize: 11
-                color: root.red
-                text: ""
-                height: text ? implicitHeight : 0
-            }
-
-            // Login button
-            Button {
-                id: loginButton
-                width: parent.width
-                height: 40
-                text: "Login"
-                font.family: "JetBrains Mono Nerd Font"
-                font.pixelSize: 13
-                font.weight: Font.DemiBold
-
-                contentItem: Text {
-                    text: loginButton.text
-                    font: loginButton.font
-                    color: root.bgDark
-                    horizontalAlignment: Text.AlignHCenter
-                    verticalAlignment: Text.AlignVCenter
-                }
-
-                background: Rectangle {
-                    color: loginButton.hovered ? Qt.lighter(root.accent, 1.15) : root.accent
-                    radius: 6
-                }
-
-                onClicked: sddm.login(nameField.text, passwordField.text, sessionIndex)
-
-                KeyNavigation.tab: nameField
-                Keys.onReturnPressed: clicked()
-            }
-        }
-    }
-
-    // Session selector — bottom left
-    ComboBox {
-        id: session
-        anchors.bottom: parent.bottom
-        anchors.left: parent.left
-        anchors.margins: 20
-        width: 180
-        height: 32
-        model: sessionModel
-        currentIndex: sessionModel.lastIndex
-        font.family: "JetBrains Mono Nerd Font"
-        font.pixelSize: 12
-
-        contentItem: Text {
-            text: session.currentText
-            color: root.fgMuted
-            font: session.font
-            leftPadding: 10
-            verticalAlignment: Text.AlignVCenter
-        }
-
-        background: Rectangle {
-            color: root.bgDark
-            radius: 6
-            border.width: 1
-            border.color: root.border
-            opacity: 0.8
-        }
-
-        delegate: ItemDelegate {
-            width: session.width
-            contentItem: Text {
-                text: model.name
-                color: root.fg
-                font: session.font
-            }
-            background: Rectangle {
-                color: highlighted ? root.surface : root.bgDark
-            }
-            highlighted: session.highlightedIndex === index
-        }
-
-        popup: Popup {
-            y: -contentItem.implicitHeight - 4
-            width: session.width
-            implicitHeight: contentItem.implicitHeight
-            padding: 1
-
-            contentItem: ListView {
-                clip: true
-                implicitHeight: contentHeight
-                model: session.popup.visible ? session.delegateModel : null
-                ScrollIndicator.vertical: ScrollIndicator {}
-            }
-
-            background: Rectangle {
-                color: root.bgDark
-                radius: 6
-                border.width: 1
-                border.color: root.border
-            }
-        }
-
-        indicator: Text {
-            x: session.width - width - 10
-            anchors.verticalCenter: parent.verticalCenter
-            text: ""
-            color: root.fgMuted
-            font.family: "JetBrains Mono Nerd Font"
-            font.pixelSize: 10
-        }
-    }
-
-    // Power buttons — bottom right
-    Row {
-        anchors.bottom: parent.bottom
-        anchors.right: parent.right
-        anchors.margins: 20
-        spacing: 12
-
-        Text {
-            text: "Reboot"
-            color: root.fgMuted
-            font.family: "JetBrains Mono Nerd Font"
-            font.pixelSize: 12
-
-            MouseArea {
-                anchors.fill: parent
-                cursorShape: Qt.PointingHandCursor
-                hoverEnabled: true
-                onEntered: parent.color = root.fg
-                onExited: parent.color = root.fgMuted
-                onClicked: sddm.reboot()
-            }
-        }
-
-        Text {
-            text: "|"
-            color: root.border
-            font.family: "JetBrains Mono Nerd Font"
-            font.pixelSize: 12
-        }
-
-        Text {
-            text: "Shutdown"
-            color: root.fgMuted
-            font.family: "JetBrains Mono Nerd Font"
-            font.pixelSize: 12
-
-            MouseArea {
-                anchors.fill: parent
-                cursorShape: Qt.PointingHandCursor
-                hoverEnabled: true
-                onEntered: parent.color = root.fg
-                onExited: parent.color = root.fgMuted
-                onClicked: sddm.powerOff()
-            }
-        }
-    }
-
-    Component.onCompleted: {
-        if (nameField.text === "")
-            nameField.focus = true
-        else
-            passwordField.focus = true
-    }
-}
-QML
+ForceLastUser="true"
+PasswordFocus="true"
+HideCompletePassword="true"
+AllowEmptyPassword="false"
+AllowUppercaseLettersInUsernames="false"
+CONF
 
 # ── Set as active theme ────────────────────────────────────────
 sudo mkdir -p /etc/sddm.conf.d
-echo -e "[Theme]\nCurrent=kanagawa" | sudo tee /etc/sddm.conf.d/theme.conf > /dev/null
+sudo tee /etc/sddm.conf.d/theme.conf > /dev/null << 'SDDMCONF'
+[Theme]
+Current=sddm-astronaut-theme
+ConfigFile=Themes/kanagawa.conf
+SDDMCONF
 
-echo "Kanagawa SDDM theme installed and activated."
+echo "SDDM Astronaut theme configured with Kanagawa colors."
