@@ -37,9 +37,9 @@ elif [[ -f "$HOME/Pictures/wallpaper.jpg" ]]; then
 fi
 
 # ── theme.conf ─────────────────────────────────────────────────
-sudo tee "$THEME_DIR/theme.conf" > /dev/null << 'THEMECONF'
+sudo tee "$THEME_DIR/theme.conf" > /dev/null << THEMECONF
 [General]
-background=background.png
+background=$THEME_DIR/background.png
 THEMECONF
 
 # ── Main.qml ──────────────────────────────────────────────────
@@ -86,17 +86,21 @@ Rectangle {
     }
 
     // Wallpaper background
-    Image {
+    Background {
         id: wallpaper
         anchors.fill: parent
         source: config.background
         fillMode: Image.PreserveAspectCrop
-        visible: false
+        onStatusChanged: {
+            if (status == Image.Error && source != config.defaultBackground) {
+                source = config.defaultBackground
+            }
+        }
     }
 
     // Blur the wallpaper
     FastBlur {
-        anchors.fill: wallpaper
+        anchors.fill: parent
         source: wallpaper
         radius: 48
     }
