@@ -61,6 +61,11 @@ if [[ "$PM" == "pacman" ]]; then
         neovim
         ripgrep
         fd
+        yazi
+        ffmpegthumbnailer
+        p7zip
+        poppler
+        imagemagick
 
         # Dev tools
         docker

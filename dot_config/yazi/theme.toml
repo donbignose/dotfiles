@@ -1,0 +1,83 @@
+# Yazi — Everforest Dark Theme
+
+[manager]
+cwd = { fg = "#A7C080" }
+
+hovered = { fg = "#D3C6AA", bg = "#343F44" }
+preview_hovered = { underline = true }
+
+find_keyword = { fg = "#DBBC7F", bold = true }
+find_position = { fg = "#D699B6", italic = true }
+
+marker_selected = { fg = "#A7C080", bg = "#A7C080" }
+marker_copied = { fg = "#DBBC7F", bg = "#DBBC7F" }
+marker_cut = { fg = "#E67E80", bg = "#E67E80" }
+
+tab_active = { fg = "#2D353B", bg = "#A7C080" }
+tab_inactive = { fg = "#D3C6AA", bg = "#343F44" }
+tab_width = 1
+
+border_symbol = "│"
+border_style = { fg = "#475258" }
+
+[status]
+separator_open = ""
+separator_close = ""
+separator_style = { fg = "#343F44", bg = "#343F44" }
+
+mode_normal = { fg = "#2D353B", bg = "#A7C080", bold = true }
+mode_select = { fg = "#2D353B", bg = "#7FBBB3", bold = true }
+mode_unset = { fg = "#2D353B", bg = "#D699B6", bold = true }
+
+progress_label = { fg = "#D3C6AA", bold = true }
+progress_normal = { fg = "#475258", bg = "#343F44" }
+progress_error = { fg = "#E67E80", bg = "#343F44" }
+
+permissions_t = { fg = "#A7C080" }
+permissions_r = { fg = "#DBBC7F" }
+permissions_w = { fg = "#E67E80" }
+permissions_x = { fg = "#83C092" }
+permissions_s = { fg = "#7A8478" }
+
+[input]
+border = { fg = "#A7C080" }
+title = {}
+value = {}
+selected = { reversed = true }
+
+[select]
+border = { fg = "#A7C080" }
+active = { fg = "#D699B6" }
+inactive = {}
+
+[tasks]
+border = { fg = "#A7C080" }
+title = {}
+hovered = { underline = true }
+
+[which]
+mask = { bg = "#232A2E" }
+cand = { fg = "#83C092" }
+rest = { fg = "#7A8478" }
+desc = { fg = "#D699B6" }
+separator = "  "
+separator_style = { fg = "#475258" }
+
+[help]
+on = { fg = "#83C092" }
+run = { fg = "#D699B6" }
+desc = { fg = "#7A8478" }
+hovered = { bg = "#343F44", bold = true }
+footer = { fg = "#D3C6AA", bg = "#232A2E" }
+
+[filetype]
+rules = [
+  { mime = "image/*", fg = "#83C092" },
+  { mime = "video/*", fg = "#DBBC7F" },
+  { mime = "audio/*", fg = "#E69875" },
+  { mime = "application/zip", fg = "#D699B6" },
+  { mime = "application/gzip", fg = "#D699B6" },
+  { mime = "application/x-tar", fg = "#D699B6" },
+  { mime = "application/pdf", fg = "#E67E80" },
+  { name = "*/", fg = "#A7C080", bold = true },
+]
