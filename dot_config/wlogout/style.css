@@ -1,0 +1,80 @@
+/* wlogout — Everforest Dark Theme */
+
+* {
+    font-family: "JetBrains Mono Nerd Font";
+    background-image: none;
+}
+
+window {
+    background-color: rgba(35, 42, 46, 0.85);
+}
+
+button {
+    color: #D3C6AA;
+    background-color: rgba(45, 53, 59, 0.0);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 20%;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    text-shadow: none;
+    margin: 0;
+    outline-style: none;
+    transition: all 0.3s ease;
+}
+
+button:focus,
+button:active,
+button:hover {
+    background-color: rgba(167, 192, 128, 0.15);
+    color: #A7C080;
+    outline-style: none;
+}
+
+#lock {
+    background-image: image(url("/usr/share/wlogout/icons/lock.png"));
+}
+#lock:focus,
+#lock:active,
+#lock:hover {
+    background-image: image(url("/usr/share/wlogout/icons/lock-hover.png"));
+}
+
+#logout {
+    background-image: image(url("/usr/share/wlogout/icons/logout.png"));
+}
+#logout:focus,
+#logout:active,
+#logout:hover {
+    background-image: image(url("/usr/share/wlogout/icons/logout-hover.png"));
+}
+
+#suspend {
+    background-image: image(url("/usr/share/wlogout/icons/suspend.png"));
+}
+#suspend:focus,
+#suspend:active,
+#suspend:hover {
+    background-image: image(url("/usr/share/wlogout/icons/suspend-hover.png"));
+}
+
+#reboot {
+    background-image: image(url("/usr/share/wlogout/icons/reboot.png"));
+}
+#reboot:focus,
+#reboot:active,
+#reboot:hover {
+    background-image: image(url("/usr/share/wlogout/icons/reboot-hover.png"));
+}
+
+#shutdown {
+    background-image: image(url("/usr/share/wlogout/icons/shutdown.png"));
+}
+#shutdown:focus,
+#shutdown:active,
+#shutdown:hover {
+    background-image: image(url("/usr/share/wlogout/icons/shutdown-hover.png"));
+    background-color: rgba(230, 126, 128, 0.15);
+    color: #E67E80;
+}
