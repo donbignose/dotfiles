@@ -15,13 +15,23 @@
 	"hyprland/workspaces": {
 		"format": "{icon}",
 		"format-icons": {
-			"1": "",
-			"2": "󰈹",
-			"3": "",
-			"4": "",
-			"5": "",
-			"urgent": "",
+			"empty": "",
 			"default": ""
+		},
+		"format-window-separator": " ",
+		"window-rewrite-default": "",
+		"window-rewrite": {
+			"class<kitty>": "",
+			"class<zen>": "󰈹",
+			"class<org.mozilla.Thunderbird>": "󰇮",
+			"class<dev.zed.Zed>": "",
+			"class<discord>": "󰙯",
+			"class<Spotify>": "",
+			"class<steam>": "󰓓",
+			"class<org.gnome.Calculator>": "",
+			"class<pavucontrol>": "",
+			"class<btop-scratchpad>": "",
+			"class<thunar>": "󰉋"
 		},
 		"on-click": "activate",
 		"sort-by-number": true,
