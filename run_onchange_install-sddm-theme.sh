@@ -109,12 +109,14 @@ AllowEmptyPassword="false"
 AllowUppercaseLettersInUsernames="false"
 CONF
 
+# ── Point the theme at our Kanagawa config ─────────────────────
+sudo sed -i 's|ConfigFile=Themes/.*\.conf|ConfigFile=Themes/kanagawa.conf|' "$THEME_DIR/metadata.desktop"
+
 # ── Set as active theme ────────────────────────────────────────
 sudo mkdir -p /etc/sddm.conf.d
 sudo tee /etc/sddm.conf.d/theme.conf > /dev/null << 'SDDMCONF'
 [Theme]
 Current=sddm-astronaut-theme
-ConfigFile=Themes/kanagawa.conf
 SDDMCONF
 
 echo "SDDM Astronaut theme configured with Kanagawa colors."
