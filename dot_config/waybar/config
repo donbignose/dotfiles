@@ -5,26 +5,36 @@
 	"margin-top": 4,
 	"margin-left": 8,
 	"margin-right": 8,
-
-	"modules-left": ["hyprland/workspaces", "hyprland/window"],
-	"modules-center": ["clock"],
-	"modules-right": ["custom/updates", "group/system", "pulseaudio#output", "network", "tray", "custom/power"],
-
+	"modules-left": [
+		"hyprland/workspaces",
+		"hyprland/window"
+	],
+	"modules-center": [
+		"clock"
+	],
+	"modules-right": [
+		"custom/updates",
+		"group/system",
+		"pulseaudio#output",
+		"network",
+		"tray",
+		"custom/power"
+	],
 	"hyprland/workspaces": {
 		"format": "{id}: {windows}",
 		"format-window-separator": " ",
-		"window-rewrite-default": "",
+		"window-rewrite-default": "",
 		"window-rewrite": {
-			"kitty": "",
+			"kitty": "",
 			"zen": "󰈹",
 			"org.mozilla.Thunderbird": "󰇮",
-			"dev.zed.Zed": "",
+			"dev.zed.Zed": "󰘤",
 			"discord": "󰙯",
-			"Spotify": "",
+			"Spotify": "󰓇",
 			"steam": "󰓓",
-			"org.pulseaudio.pavucontrol": "",
-			"scratchpad": "",
-			"btop-scratchpad": ""
+			"org.pulseaudio.pavucontrol": "󰕾",
+			"scratchpad": "",
+			"btop-scratchpad": "󰨇"
 		},
 		"on-click": "activate",
 		"sort-by-number": true,
@@ -32,28 +42,24 @@
 			"*": 5
 		}
 	},
-
 	"hyprland/window": {
 		"format": "{}",
 		"max-length": 40,
 		"separate-outputs": true
 	},
-
 	"clock": {
 		"interval": 1,
 		"format": "{:%H:%M}",
 		"format-alt": "{:%A, %B %d}",
 		"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
 	},
-
 	"custom/updates": {
-		"format": "󰏗 {}",
+		"format": "󰆇 {}",
 		"exec": "checkupdates 2>/dev/null | wc -l",
 		"interval": 3600,
 		"tooltip": false,
 		"on-click": "kitty -e sudo pacman -Syu"
 	},
-
 	"group/system": {
 		"orientation": "inherit",
 		"drawer": {
@@ -61,65 +67,66 @@
 			"children-class": "system-drawer",
 			"transition-left-to-right": false
 		},
-		"modules": ["cpu", "memory", "temperature", "disk"]
+		"modules": [
+			"cpu",
+			"memory",
+			"temperature",
+			"disk"
+		]
 	},
-
 	"cpu": {
 		"interval": 3,
 		"format": "󰍛 {usage}%"
 	},
-
 	"memory": {
 		"interval": 5,
-		"format": " {}%",
+		"format": " {}%",
 		"on-click": "kitty -e btop",
 		"states": {
 			"warning": 70,
 			"critical": 90
 		}
 	},
-
 	"temperature": {
 		"interval": 3,
 		"critical-threshold": 80,
 		"format-critical": "󰸁 {temperatureC}°C",
-		"format": " {temperatureC}°C"
+		"format": " {temperatureC}°C"
 	},
-
 	"disk": {
 		"interval": 30,
 		"format": "󰇅 {percentage_used}%",
 		"path": "/"
 	},
-
 	"pulseaudio#output": {
 		"scroll-step": 5,
 		"format": "{icon} {volume}%",
-		"format-muted": "󰖁 muted",
+		"format-muted": "󰗡 muted",
 		"format-icons": {
 			"headphone": "󰋋",
-			"default": ["", "", ""]
+			"default": [
+				"",
+				"",
+				""
+			]
 		},
 		"on-click": "swayosd-client --output-volume mute-toggle",
 		"on-click-right": "pavucontrol",
 		"on-scroll-up": "swayosd-client --output-volume raise",
 		"on-scroll-down": "swayosd-client --output-volume lower"
 	},
-
 	"network": {
-		"format-wifi": "  {essid}",
+		"format-wifi": "  {essid}",
 		"format-ethernet": "󰈀 {ipaddr}",
 		"format-disconnected": "󰤮 ",
-		"format-alt": " {bandwidthUpBits}  {bandwidthDownBits}",
-		"tooltip-format": "󰈀 {ifname}\n {ipaddr}/{cidr}\n {bandwidthUpBytes}  {bandwidthDownBytes}",
+		"format-alt": " {bandwidthUpBits}  {bandwidthDownBits}",
+		"tooltip-format": "󰈀 {ifname}\n {ipaddr}/{cidr}\n {bandwidthUpBytes}  {bandwidthDownBytes}",
 		"interval": 5
 	},
-
 	"tray": {
 		"spacing": 8,
 		"icon-size": 16
 	},
-
 	"custom/power": {
 		"format": "⏻",
 		"tooltip": false,
