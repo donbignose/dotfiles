@@ -116,6 +116,7 @@ if [[ "$PM" == "pacman" ]]; then
     # ── AUR packages (requires yay or paru) ──────────
     AUR_PACKAGES=(
         grimblast-git
+        pyprland
         sddm-astronaut-theme
         zen-browser-bin
     )

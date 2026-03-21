@@ -1,0 +1,22 @@
+[pyprland]
+plugins = ["scratchpads", "expose"]
+
+[scratchpads.term]
+command = "kitty --class scratchpad"
+class = "scratchpad"
+animation = "fromTop"
+size = "75% 60%"
+
+[scratchpads.volume]
+command = "pavucontrol"
+class = "org.pulseaudio.pavucontrol"
+animation = "fromRight"
+size = "40% 90%"
+lazy = true
+
+[scratchpads.btop]
+command = "kitty --class btop-scratchpad -e btop"
+class = "btop-scratchpad"
+animation = "fromTop"
+size = "80% 70%"
+lazy = true
