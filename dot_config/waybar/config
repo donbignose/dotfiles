@@ -8,7 +8,7 @@
 
 	"modules-left": ["hyprland/workspaces", "hyprland/window"],
 	"modules-center": ["clock"],
-	"modules-right": ["custom/updates", "group/system", "pulseaudio#output", "network", "tray", "custom/power"],
+	"modules-right": ["custom/updates", "cpu", "memory", "temperature", "disk", "pulseaudio#output", "network", "tray", "custom/power"],
 
 	// ── Left ────────────────────────────────────────────────
 
@@ -54,16 +54,6 @@
 		"interval": 3600,
 		"tooltip": false,
 		"on-click": "kitty -e sudo pacman -Syu"
-	},
-
-	"group/system": {
-		"orientation": "inherit",
-		"drawer": {
-			"transition-duration": 400,
-			"children-class": "system-drawer",
-			"transition-left-to-right": false
-		},
-		"modules": ["cpu", "memory", "temperature", "disk"]
 	},
 
 	"cpu": {
