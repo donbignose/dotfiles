@@ -62,6 +62,8 @@ if [[ "$PM" == "pacman" ]]; then
         ripgrep
         fd
         yazi
+        fzf
+        zoxide
         ffmpegthumbnailer
         p7zip
         poppler

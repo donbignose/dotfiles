@@ -7,24 +7,63 @@ export PATH="$HOME/.local/bin:$PATH"
 
 # ── History ──────────────────────────────────────────────────
 HISTFILE=~/.zsh_history
-HISTSIZE=10000
-SAVEHIST=10000
+HISTSIZE=50000
+SAVEHIST=50000
 setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_IGNORE_SPACE
+setopt HIST_SAVE_NO_DUPS
 setopt SHARE_HISTORY
 setopt APPEND_HISTORY
+setopt INC_APPEND_HISTORY
+setopt EXTENDED_HISTORY
 
 # ── Completion ──────────────────────────────────────────────
 autoload -Uz compinit && compinit
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+zstyle ':completion:*' menu select
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+zstyle ':completion:*:descriptions' format '[%d]'
+zstyle ':completion:*' group-name ''
 
 # ── Vi mode ──────────────────────────────────────────────────
 bindkey -v
 export KEYTIMEOUT=1
 
+# ── History search (up/down arrow prefix matching) ───────────
+autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+bindkey '^[[A' up-line-or-beginning-search
+bindkey '^[[B' down-line-or-beginning-search
+bindkey -M vicmd 'k' up-line-or-beginning-search
+bindkey -M vicmd 'j' down-line-or-beginning-search
+
 # ── Editor ───────────────────────────────────────────────────
 export EDITOR="nvim"
 export VISUAL="nvim"
+
+# ── FZF ──────────────────────────────────────────────────────
+if command -v fzf &>/dev/null; then
+  source <(fzf --zsh 2>/dev/null)
+  export FZF_DEFAULT_OPTS="
+    --height=40%
+    --layout=reverse
+    --border=rounded
+    --color=bg+:#343F44,bg:#2D353B,spinner:#A7C080,hl:#83C092
+    --color=fg:#D3C6AA,header:#83C092,info:#DBBC7F,pointer:#A7C080
+    --color=marker:#A7C080,fg+:#D3C6AA,prompt:#DBBC7F,hl+:#83C092
+    --color=border:#475258
+  "
+  export FZF_CTRL_T_OPTS="--preview 'bat --color=always --line-range :200 {} 2>/dev/null || eza --icons --tree --level=1 {} 2>/dev/null'"
+  export FZF_ALT_C_OPTS="--preview 'eza --icons --tree --level=1 {} 2>/dev/null'"
+  export FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window=up:3:hidden:wrap --bind '?:toggle-preview'"
+fi
+
+# ── Zoxide (smarter cd) ─────────────────────────────────────
+if command -v zoxide &>/dev/null; then
+  eval "$(zoxide init zsh)"
+fi
 
 # ── Aliases ──────────────────────────────────────────────────
 # Modern replacements
@@ -62,7 +101,7 @@ alias grep="grep --color=auto"
 [[ -f /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]] && \
   source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-# zsh-syntax-highlighting (must be last)
+# zsh-syntax-highlighting (must be last plugin)
 [[ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] && \
   source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
