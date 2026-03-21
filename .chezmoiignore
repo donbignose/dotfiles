@@ -16,4 +16,5 @@ plan.md
 .config/dunst/
 .config/fuzzel/
 run_once_install-packages-linux.sh
+run_onchange_install-sddm-theme.sh
 {{ end }}

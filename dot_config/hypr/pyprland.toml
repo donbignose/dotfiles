@@ -1,0 +1,14 @@
+[pyprland]
+plugins = ["scratchpads"]
+
+[scratchpads.lazygit]
+command = "kitty --class lazygit lazygit"
+class = "lazygit"
+size = "80% 80%"
+position = "10% 10%"
+
+[scratchpads.terminal]
+command = "kitty --class scratchterm"
+class = "scratchterm"
+size = "80% 60%"
+position = "10% 20%"

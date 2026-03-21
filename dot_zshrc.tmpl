@@ -5,6 +5,11 @@
 # ── PATH ─────────────────────────────────────────────────────
 export PATH="$HOME/.local/bin:$PATH"
 
+{{ if eq .chezmoi.os "darwin" -}}
+# macOS: Homebrew
+eval "$(/opt/homebrew/bin/brew shellenv)"
+{{ end -}}
+
 # ── History ──────────────────────────────────────────────────
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
@@ -46,6 +51,37 @@ alias lg="lazygit"
 alias ..="cd .."
 alias ...="cd ../.."
 alias grep="grep --color=auto"
+
+{{ if eq .chezmoi.os "darwin" -}}
+# macOS package management
+alias update="brew update && brew upgrade"
+{{ else if eq .chezmoi.os "linux" -}}
+# Linux package management
+alias update="yay -Syu"
+alias install="yay -S"
+alias search="yay -Ss"
+{{ end -}}
+
+# ── fzf ────────────────────────────────────────────────────
+eval "$(fzf --zsh)"
+export FZF_DEFAULT_COMMAND='fd --type f'
+export FZF_CTRL_T_COMMAND='fd --type f'
+
+# ── Yazi (cd on exit) ──────────────────────────────────────
+function y() {
+  local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+  yazi "$@" --cwd-file="$tmp"
+  if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+    builtin cd -- "$cwd"
+  fi
+  rm -f -- "$tmp"
+}
+
+{{ if eq .chezmoi.os "linux" -}}
+# ── SSH agent (Linux) ──────────────────────────────────────
+eval "$(ssh-agent -s)" > /dev/null
+ssh-add ~/.ssh/id_ed25519 2>/dev/null
+{{ end -}}
 
 # ── Plugins ──────────────────────────────────────────────────
 # zsh-autosuggestions

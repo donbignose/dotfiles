@@ -56,10 +56,13 @@ if [[ "$PM" == "pacman" ]]; then
         bat
         btop
         lazygit
+        git-delta
         tmux
         neovim
         ripgrep
         fd
+        fzf
+        yazi
 
         # Dev tools
         docker
@@ -92,6 +95,38 @@ if [[ "$PM" == "pacman" ]]; then
         # Authentication
         hyprpolkitagent
 
+        # Network & Bluetooth
+        networkmanager
+        nm-applet
+        blueman
+
+        # OSD
+        swayosd
+
+        # Wallpaper
+        swww
+
+        # Cursor & theming
+        bibata-cursor-theme
+        nwg-look
+
+        # Viewers
+        zathura
+        zathura-pdf-mupdf
+        imv
+        mpv
+
+        # Screen recording
+        wf-recorder
+
+        # Scratchpads
+        pyprland
+
+        # Hyprland extras
+        hyprpicker
+        hyprsunset
+        hyprcursor
+
         # Shell plugins
         zsh-autosuggestions
         zsh-syntax-highlighting
@@ -111,6 +146,9 @@ if [[ "$PM" == "pacman" ]]; then
         grimblast-git
         sddm-astronaut-theme
         zen-browser-bin
+        kanagawa-gtk-theme-git
+        papirus-icon-theme
+        zed-editor
     )
 
     if command -v yay &>/dev/null; then

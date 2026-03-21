@@ -1,3 +1,26 @@
+gui:
+  theme:
+    activeBorderColor:
+      - "#76946a"
+      - bold
+    inactiveBorderColor:
+      - "#54546D"
+    optionsTextColor:
+      - "#7fb4ca"
+    selectedLineBgColor:
+      - "#2a2a37"
+    selectedRangeBgColor:
+      - "#2a2a37"
+    cherryPickedCommitBgColor:
+      - "#6a9589"
+    cherryPickedCommitFgColor:
+      - "#1f1f28"
+    unstagedChangesColor:
+      - "#c34043"
+    defaultFgColor:
+      - "#dcd7ba"
+  nerdFontsVersion: "3"
+
 customCommands:
   - key: "<c-c>"
     description: "Conventional Commit"

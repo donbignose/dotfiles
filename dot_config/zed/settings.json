@@ -31,7 +31,11 @@
   "theme": {
     "mode": "dark",
     "light": "Gruvbox Light",
-    "dark": "Kanagawa Dragon",
+    "dark": "Kanagawa Wave",
+  },
+  "relative_line_numbers": true,
+  "scrollbar": {
+    "show": "never",
   },
 
   "terminal": {
