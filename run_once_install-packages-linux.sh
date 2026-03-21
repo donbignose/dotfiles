@@ -47,6 +47,7 @@ if [[ "$PM" == "pacman" ]]; then
         grim
         slurp
         wl-clipboard
+        cliphist
 
         # CLI tools
         python
@@ -87,6 +88,16 @@ if [[ "$PM" == "pacman" ]]; then
         qt5-graphicaleffects
         qt5-quickcontrols2
 
+        # Authentication
+        hyprpolkitagent
+
+        # Shell plugins
+        zsh-autosuggestions
+        zsh-syntax-highlighting
+
+        # Applications
+        thunderbird
+
         # Misc
         playerctl
     )
@@ -96,10 +107,8 @@ if [[ "$PM" == "pacman" ]]; then
 
     # ── AUR packages (requires yay or paru) ──────────
     AUR_PACKAGES=(
-        clipman
         grimblast-git
-        zsh-autosuggestions
-        zsh-syntax-highlighting
+        zen-browser-bin
     )
 
     if command -v yay &>/dev/null; then
