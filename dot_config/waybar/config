@@ -22,15 +22,7 @@
 	"hyprland/window": {
 		"format": "{}",
 		"max-length": 40,
-		"separate-outputs": true,
-		"rewrite": {
-			"(.*) — Zen Browser": "󰈹 Zen",
-			"(.*) — Mozilla Firefox": "󰈹 Firefox",
-			"(.*) - Mozilla Thunderbird": "󰇮 Mail",
-			"(.*) - Discord": "󰙯 Discord",
-			"(.*) — Spotify(.*)": " Spotify",
-			"(.*) - Steam": "󰓓 Steam"
-		}
+		"separate-outputs": true
 	},
 
 	"clock": {
