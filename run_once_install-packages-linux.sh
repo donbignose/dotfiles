@@ -33,6 +33,7 @@ if [[ "$PM" == "pacman" ]]; then
         hypridle
         waybar
         xdg-desktop-portal-hyprland
+        keyd
 
         # Terminal & shell
         kitty
@@ -177,6 +178,21 @@ fi
 if command -v sddm &>/dev/null; then
     echo "Enabling SDDM display manager..."
     sudo systemctl enable sddm
+fi
+
+# Configure keyd (fix Logitech swapped TLDE/LSGT keys)
+if command -v keyd &>/dev/null; then
+    echo "Configuring keyd key remapping..."
+    sudo mkdir -p /etc/keyd
+    sudo tee /etc/keyd/default.conf > /dev/null << 'KEYD'
+[ids]
+*
+
+[main]
+102nd = grave
+grave = 102nd
+KEYD
+    sudo systemctl enable --now keyd
 fi
 
 # Enable and start Docker
