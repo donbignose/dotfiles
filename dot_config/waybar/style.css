@@ -47,7 +47,7 @@ button label {
 }
 
 #workspaces button.active {
-	color: #7E9CD8;
+	color: #98BB6C;
 }
 
 #workspaces button.urgent {
@@ -79,7 +79,7 @@ button label {
 }
 
 #memory {
-	color: #7E9CD8;
+	color: #98BB6C;
 }
 
 #memory.warning {

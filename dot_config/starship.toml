@@ -1,9 +1,9 @@
 # Starship Prompt — Kanagawa Wave
 
 format = """
-[](#7E9CD8)\
+[](#98BB6C)\
 $os\
-[](bg:#957FB8 fg:#7E9CD8)\
+[](bg:#957FB8 fg:#98BB6C)\
 $directory\
 [](bg:#76946A fg:#957FB8)\
 $git_branch\
@@ -21,7 +21,7 @@ $character"""
 
 [os]
 disabled = false
-style = "bg:#7E9CD8 fg:#1F1F28"
+style = "bg:#98BB6C fg:#1F1F28"
 
 [os.symbols]
 Arch = "󰣇 "
