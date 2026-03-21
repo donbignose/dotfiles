@@ -1,5 +1,5 @@
 # Dunst — Notification Daemon
-# Kanagawa Wave Theme
+# Everforest Dark Theme
 
 [global]
     monitor = 0
@@ -40,19 +40,19 @@
     mouse_right_click = close_all
 
 [urgency_low]
-    background = "#1F1F28"
-    foreground = "#DCD7BA"
-    frame_color = "#76946A"
+    background = "#2D353B"
+    foreground = "#D3C6AA"
+    frame_color = "#83C092"
     timeout = 5
 
 [urgency_normal]
-    background = "#1F1F28"
-    foreground = "#DCD7BA"
-    frame_color = "#98BB6C"
+    background = "#2D353B"
+    foreground = "#D3C6AA"
+    frame_color = "#A7C080"
     timeout = 10
 
 [urgency_critical]
-    background = "#1F1F28"
-    foreground = "#DCD7BA"
-    frame_color = "#C34043"
+    background = "#2D353B"
+    foreground = "#D3C6AA"
+    frame_color = "#E67E80"
     timeout = 0

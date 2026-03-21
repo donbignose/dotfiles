@@ -1,16 +1,13 @@
 return {
   {
-    "rebelot/kanagawa.nvim",
-    name = "kanagawa",
+    "sainnhe/everforest",
+    name = "everforest",
     priority = 1000,
     lazy = false,
-    opts = {
-      theme = "wave",
-      transparent = false,
-    },
-    config = function(_, opts)
-      require("kanagawa").setup(opts)
-      vim.cmd.colorscheme("kanagawa-wave")
+    config = function()
+      vim.g.everforest_background = "medium"
+      vim.g.everforest_better_performance = 1
+      vim.cmd.colorscheme("everforest")
     end,
   },
 }

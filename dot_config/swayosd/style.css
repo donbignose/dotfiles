@@ -1,10 +1,10 @@
-/* SwayOSD — Kanagawa Wave */
+/* SwayOSD — Everforest Dark */
 
 window {
     padding: 12px 20px;
     border-radius: 12px;
-    border: 2px solid #54546D;
-    background: alpha(#1F1F28, 0.9);
+    border: 2px solid #475258;
+    background: alpha(#2D353B, 0.9);
 }
 
 #container {
@@ -12,7 +12,7 @@ window {
 }
 
 image {
-    color: #DCD7BA;
+    color: #D3C6AA;
 }
 
 progressbar:disabled,
@@ -29,11 +29,11 @@ progressbar {
 trough {
     min-height: 6px;
     border-radius: 999px;
-    background: #2A2A37;
+    background: #343F44;
 }
 
 progress {
     min-height: 6px;
     border-radius: 999px;
-    background: #98BB6C;
+    background: #A7C080;
 }

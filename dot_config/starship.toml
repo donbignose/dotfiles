@@ -1,27 +1,27 @@
-# Starship Prompt — Kanagawa Wave
+# Starship Prompt — Everforest Dark
 
 format = """
-[](#98BB6C)\
+[](#A7C080)\
 $os\
-[](bg:#957FB8 fg:#98BB6C)\
+[](bg:#D699B6 fg:#A7C080)\
 $directory\
-[](bg:#76946A fg:#957FB8)\
+[](bg:#83C092 fg:#D699B6)\
 $git_branch\
 $git_status\
-[](bg:#DCA561 fg:#76946A)\
+[](bg:#DBBC7F fg:#83C092)\
 $nodejs\
 $python\
 $rust\
 $golang\
-[](bg:#6A9589 fg:#DCA561)\
+[](bg:#7FBBB3 fg:#DBBC7F)\
 $cmd_duration\
-[](fg:#6A9589)\
+[](fg:#7FBBB3)\
 $line_break\
 $character"""
 
 [os]
 disabled = false
-style = "bg:#98BB6C fg:#1F1F28"
+style = "bg:#A7C080 fg:#2D353B"
 
 [os.symbols]
 Arch = "󰣇 "
@@ -32,45 +32,45 @@ Linux = " "
 Windows = "󰍲 "
 
 [directory]
-style = "bg:#957FB8 fg:#1F1F28"
+style = "bg:#D699B6 fg:#2D353B"
 format = "[ $path ]($style)"
 truncation_length = 3
 truncation_symbol = "…/"
 
 [git_branch]
-style = "bg:#76946A fg:#1F1F28"
+style = "bg:#83C092 fg:#2D353B"
 format = "[ $symbol$branch ]($style)"
 symbol = " "
 
 [git_status]
-style = "bg:#76946A fg:#1F1F28"
+style = "bg:#83C092 fg:#2D353B"
 format = "[$all_status$ahead_behind ]($style)"
 
 [nodejs]
-style = "bg:#DCA561 fg:#1F1F28"
+style = "bg:#DBBC7F fg:#2D353B"
 format = "[ $symbol($version) ]($style)"
 symbol = " "
 
 [python]
-style = "bg:#DCA561 fg:#1F1F28"
+style = "bg:#DBBC7F fg:#2D353B"
 format = "[ $symbol($version) ]($style)"
 symbol = " "
 
 [rust]
-style = "bg:#DCA561 fg:#1F1F28"
+style = "bg:#DBBC7F fg:#2D353B"
 format = "[ $symbol($version) ]($style)"
 symbol = "🦀 "
 
 [golang]
-style = "bg:#DCA561 fg:#1F1F28"
+style = "bg:#DBBC7F fg:#2D353B"
 format = "[ $symbol($version) ]($style)"
 symbol = " "
 
 [cmd_duration]
-style = "bg:#6A9589 fg:#1F1F28"
+style = "bg:#7FBBB3 fg:#2D353B"
 format = "[ 󰔛 $duration ]($style)"
 min_time = 2_000
 
 [character]
-success_symbol = "[❯](bold #76946A)"
-error_symbol = "[❯](bold #C34043)"
+success_symbol = "[❯](bold #A7C080)"
+error_symbol = "[❯](bold #E67E80)"

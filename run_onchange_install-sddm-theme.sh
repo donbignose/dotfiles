@@ -1,6 +1,6 @@
 #!/bin/bash
 # ╔══════════════════════════════════════════════════════════════╗
-# ║    SDDM Astronaut Theme — Kanagawa Wave config              ║
+# ║    SDDM Astronaut Theme — Everforest Dark config            ║
 # ║   Re-runs automatically when this script's content changes  ║
 # ╚══════════════════════════════════════════════════════════════╝
 
@@ -16,17 +16,17 @@ THEME_DIR="/usr/share/sddm/themes/sddm-astronaut-theme"
 
 # ── Copy wallpaper into theme directory (SDDM can't read /home) ──
 if [[ -f "$HOME/Pictures/wallpaper.png" ]]; then
-    sudo cp "$HOME/Pictures/wallpaper.png" "$THEME_DIR/Backgrounds/kanagawa.png"
-    BG_FILE="Backgrounds/kanagawa.png"
+    sudo cp "$HOME/Pictures/wallpaper.png" "$THEME_DIR/Backgrounds/everforest.png"
+    BG_FILE="Backgrounds/everforest.png"
 elif [[ -f "$HOME/Pictures/wallpaper.jpg" ]]; then
-    sudo cp "$HOME/Pictures/wallpaper.jpg" "$THEME_DIR/Backgrounds/kanagawa.jpg"
-    BG_FILE="Backgrounds/kanagawa.jpg"
+    sudo cp "$HOME/Pictures/wallpaper.jpg" "$THEME_DIR/Backgrounds/everforest.jpg"
+    BG_FILE="Backgrounds/everforest.jpg"
 else
     BG_FILE="Backgrounds/japanese_aesthetic.png"
 fi
 
-# ── Write Kanagawa theme config ────────────────────────────────
-sudo tee "$THEME_DIR/Themes/kanagawa.conf" > /dev/null << CONF
+# ── Write Everforest theme config ──────────────────────────────
+sudo tee "$THEME_DIR/Themes/everforest.conf" > /dev/null << CONF
 [General]
 #################### General ####################
 
@@ -48,43 +48,43 @@ CropBackground="true"
 
 #################### Colors ####################
 
-HeaderTextColor="#DCD7BA"
-DateTextColor="#727169"
-TimeTextColor="#DCD7BA"
+HeaderTextColor="#D3C6AA"
+DateTextColor="#7A8478"
+TimeTextColor="#D3C6AA"
 
-FormBackgroundColor="#1F1F28"
-BackgroundColor="#1F1F28"
-DimBackgroundColor="#16161D"
+FormBackgroundColor="#2D353B"
+BackgroundColor="#2D353B"
+DimBackgroundColor="#232A2E"
 
-LoginFieldBackgroundColor="#2A2A37"
-PasswordFieldBackgroundColor="#2A2A37"
-LoginFieldTextColor="#DCD7BA"
-PasswordFieldTextColor="#DCD7BA"
-UserIconColor="#727169"
-PasswordIconColor="#727169"
+LoginFieldBackgroundColor="#343F44"
+PasswordFieldBackgroundColor="#343F44"
+LoginFieldTextColor="#D3C6AA"
+PasswordFieldTextColor="#D3C6AA"
+UserIconColor="#7A8478"
+PasswordIconColor="#7A8478"
 
-PlaceholderTextColor="#727169"
-WarningColor="#C34043"
+PlaceholderTextColor="#7A8478"
+WarningColor="#E67E80"
 
-LoginButtonTextColor="#1F1F28"
-LoginButtonBackgroundColor="#98BB6C"
-SystemButtonsIconsColor="#727169"
-SessionButtonTextColor="#727169"
-VirtualKeyboardButtonTextColor="#727169"
+LoginButtonTextColor="#2D353B"
+LoginButtonBackgroundColor="#A7C080"
+SystemButtonsIconsColor="#7A8478"
+SessionButtonTextColor="#7A8478"
+VirtualKeyboardButtonTextColor="#7A8478"
 
-DropdownTextColor="#DCD7BA"
-DropdownSelectedBackgroundColor="#2A2A37"
-DropdownBackgroundColor="#1F1F28"
+DropdownTextColor="#D3C6AA"
+DropdownSelectedBackgroundColor="#343F44"
+DropdownBackgroundColor="#2D353B"
 
-HighlightTextColor="#DCD7BA"
-HighlightBackgroundColor="#98BB6C"
-HighlightBorderColor="#54546D"
+HighlightTextColor="#D3C6AA"
+HighlightBackgroundColor="#A7C080"
+HighlightBorderColor="#475258"
 
-HoverUserIconColor="#DCD7BA"
-HoverPasswordIconColor="#DCD7BA"
-HoverSystemButtonsIconsColor="#DCD7BA"
-HoverSessionButtonTextColor="#DCD7BA"
-HoverVirtualKeyboardButtonTextColor="#DCD7BA"
+HoverUserIconColor="#D3C6AA"
+HoverPasswordIconColor="#D3C6AA"
+HoverSystemButtonsIconsColor="#D3C6AA"
+HoverSessionButtonTextColor="#D3C6AA"
+HoverVirtualKeyboardButtonTextColor="#D3C6AA"
 
 #################### Form ####################
 
@@ -109,8 +109,8 @@ AllowEmptyPassword="false"
 AllowUppercaseLettersInUsernames="false"
 CONF
 
-# ── Point the theme at our Kanagawa config ─────────────────────
-sudo sed -i 's|ConfigFile=Themes/.*\.conf|ConfigFile=Themes/kanagawa.conf|' "$THEME_DIR/metadata.desktop"
+# ── Point the theme at our Everforest config ───────────────────
+sudo sed -i 's|ConfigFile=Themes/.*\.conf|ConfigFile=Themes/everforest.conf|' "$THEME_DIR/metadata.desktop"
 
 # ── Set as active theme ────────────────────────────────────────
 sudo mkdir -p /etc/sddm.conf.d
@@ -119,4 +119,4 @@ sudo tee /etc/sddm.conf.d/theme.conf > /dev/null << 'SDDMCONF'
 Current=sddm-astronaut-theme
 SDDMCONF
 
-echo "SDDM Astronaut theme configured with Kanagawa colors."
+echo "SDDM Astronaut theme configured with Everforest colors."
