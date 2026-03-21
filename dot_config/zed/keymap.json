@@ -1,0 +1,54 @@
+[
+  {
+    "context": "VimControl && !menu",
+    "bindings": {
+      // Pane navigation (matches nvim/tmux)
+      "ctrl-h": ["workspace::ActivatePaneInDirection", "Left"],
+      "ctrl-j": ["workspace::ActivatePaneInDirection", "Down"],
+      "ctrl-k": ["workspace::ActivatePaneInDirection", "Up"],
+      "ctrl-l": ["workspace::ActivatePaneInDirection", "Right"],
+
+      // Split panes (like nvim)
+      "space |": "pane::SplitRight",
+      "space -": "pane::SplitDown",
+
+      // File explorer
+      "space e": "workspace::ToggleLeftDock",
+
+      // Find file / search
+      "space f": "file_finder::Toggle",
+      "space /": "pane::DeploySearch",
+
+      // Buffer management
+      "space x": "pane::CloseActiveItem",
+      "shift-h": "pane::ActivatePrevItem",
+      "shift-l": "pane::ActivateNextItem",
+
+      // Code actions
+      "space c a": "editor::ToggleCodeActions",
+      "space r n": "editor::Rename",
+
+      // Diagnostics
+      "space d": "diagnostics::Deploy",
+      "] d": "editor::GoToDiagnostic",
+      "[ d": "editor::GoToPrevDiagnostic"
+    }
+  },
+  {
+    "context": "vim_mode == insert",
+    "bindings": {
+      // Quick escape
+      "j k": "vim::NormalBefore"
+    }
+  },
+  {
+    "context": "Terminal",
+    "bindings": {
+      // Pane navigation works from terminal too
+      "ctrl-h": ["workspace::ActivatePaneInDirection", "Left"],
+      "ctrl-j": ["workspace::ActivatePaneInDirection", "Down"],
+      "ctrl-k": ["workspace::ActivatePaneInDirection", "Up"],
+      "ctrl-l": ["workspace::ActivatePaneInDirection", "Right"]
+    }
+  }
+]
