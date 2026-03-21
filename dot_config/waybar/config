@@ -16,6 +16,7 @@
 	"modules-right": [
 		"custom/updates",
 		"group/system",
+		"idle_inhibitor",
 		"pulseaudio#output",
 		"network",
 		"tray",
@@ -141,5 +142,12 @@
 		"on-click": "playerctl play-pause",
 		"on-scroll-up": "playerctl next",
 		"on-scroll-down": "playerctl previous"
+	},
+	"idle_inhibitor": {
+		"format": "{icon}",
+		"format-icons": {
+			"activated": "󰙃",
+			"deactivated": "󰙄"
+		}
 	}
 }

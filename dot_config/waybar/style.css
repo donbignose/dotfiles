@@ -148,6 +148,16 @@ tooltip {
     color: #D699B6;
 }
 
+/* ── Idle Inhibitor ──────────────────────────────────────── */
+
+#idle_inhibitor {
+    color: #7A8478;
+}
+
+#idle_inhibitor.activated {
+    color: #DBBC7F;
+}
+
 /* ── Audio ───────────────────────────────────────────────── */
 
 #pulseaudio {
