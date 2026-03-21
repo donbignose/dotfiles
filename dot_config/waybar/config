@@ -13,7 +13,7 @@
 	// ── Left ────────────────────────────────────────────────
 
 	"hyprland/workspaces": {
-		"format": "{icon}",
+		"format": "{windows}",
 		"format-icons": {
 			"empty": "",
 			"default": ""
@@ -29,9 +29,10 @@
 			"class<Spotify>": "",
 			"class<steam>": "󰓓",
 			"class<org.gnome.Calculator>": "",
-			"class<pavucontrol>": "",
+			"class<org.pulseaudio.pavucontrol>": "",
 			"class<btop-scratchpad>": "",
-			"class<thunar>": "󰉋"
+			"class<thunar>": "󰉋",
+			"class<scratchpad>": ""
 		},
 		"on-click": "activate",
 		"sort-by-number": true,
