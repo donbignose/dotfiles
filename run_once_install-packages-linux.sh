@@ -41,7 +41,7 @@ if [[ "$PM" == "pacman" ]]; then
         starship
 
         # Notifications, launcher & OSD
-        dunst
+        swaync
         fuzzel
         swayosd
 

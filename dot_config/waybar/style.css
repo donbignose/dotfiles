@@ -208,6 +208,21 @@ tooltip {
     color: #D3C6AA;
 }
 
+/* ── Notifications ───────────────────────────────────────── */
+
+#custom-notification {
+    color: #7A8478;
+}
+
+#custom-notification.notification {
+    color: #A7C080;
+}
+
+#custom-notification.dnd-notification,
+#custom-notification.dnd-none {
+    color: #E67E80;
+}
+
 /* ── Tray ────────────────────────────────────────────────── */
 
 #tray {

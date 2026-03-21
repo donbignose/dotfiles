@@ -1,0 +1,164 @@
+/* SwayNC — Everforest Dark Theme */
+
+* {
+    font-family: "JetBrains Mono Nerd Font";
+    font-size: 13px;
+}
+
+/* ── Notification popup ──────────────────────────────────── */
+
+.notification-row {
+    outline: none;
+}
+
+.notification {
+    border-radius: 12px;
+    margin: 4px 8px;
+    padding: 0;
+    border: 1px solid #475258;
+    background: #2D353B;
+    color: #D3C6AA;
+}
+
+.notification-content {
+    padding: 8px 12px;
+}
+
+.notification-default-action {
+    border-radius: 12px;
+}
+
+.notification-default-action:hover {
+    background: #343F44;
+}
+
+.summary {
+    color: #D3C6AA;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.body {
+    color: #9DA9A0;
+    font-size: 12px;
+}
+
+.time {
+    color: #7A8478;
+    font-size: 11px;
+}
+
+.close-button {
+    background: #343F44;
+    color: #D3C6AA;
+    border-radius: 50%;
+    min-width: 24px;
+    min-height: 24px;
+    margin: 4px;
+}
+
+.close-button:hover {
+    background: #E67E80;
+    color: #2D353B;
+}
+
+/* ── Urgency levels ──────────────────────────────────────── */
+
+.low {
+    border-left: 3px solid #83C092;
+}
+
+.normal {
+    border-left: 3px solid #A7C080;
+}
+
+.critical {
+    border-left: 3px solid #E67E80;
+    background: rgba(230, 126, 128, 0.08);
+}
+
+/* ── Control Center ──────────────────────────────────────── */
+
+.control-center {
+    background: rgba(45, 53, 59, 0.95);
+    border-radius: 14px;
+    border: 1px solid #475258;
+    padding: 8px;
+}
+
+.control-center-list {
+    background: transparent;
+}
+
+.control-center-list-placeholder {
+    opacity: 0.5;
+}
+
+/* ── Widgets ─────────────────────────────────────────────── */
+
+.widget-title {
+    color: #D3C6AA;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 8px;
+}
+
+.widget-title > button {
+    background: #343F44;
+    color: #D3C6AA;
+    border-radius: 8px;
+    padding: 4px 12px;
+    border: none;
+}
+
+.widget-title > button:hover {
+    background: #E67E80;
+    color: #2D353B;
+}
+
+.widget-dnd {
+    margin: 4px 8px;
+    padding: 4px 8px;
+    color: #D3C6AA;
+    font-size: 13px;
+}
+
+.widget-dnd > switch {
+    background: #343F44;
+    border-radius: 12px;
+}
+
+.widget-dnd > switch:checked {
+    background: #A7C080;
+}
+
+.widget-dnd > switch slider {
+    background: #D3C6AA;
+    border-radius: 50%;
+}
+
+/* ── Notification group ──────────────────────────────────── */
+
+.notification-group {
+    margin: 2px 8px;
+}
+
+.notification-group-headers {
+    color: #7A8478;
+    font-size: 12px;
+    padding: 4px 8px;
+}
+
+.notification-group-collapse-button {
+    color: #7A8478;
+}
+
+.notification-group-collapse-button:hover {
+    color: #D3C6AA;
+}
+
+/* ── Floating notification ───────────────────────────────── */
+
+.floating-notifications {
+    background: transparent;
+}
