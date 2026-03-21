@@ -13,27 +13,7 @@
 	// ── Left ────────────────────────────────────────────────
 
 	"hyprland/workspaces": {
-		"format": "{windows}",
-		"format-icons": {
-			"empty": "",
-			"default": ""
-		},
-		"format-window-separator": " ",
-		"window-rewrite-default": "",
-		"window-rewrite": {
-			"class<kitty>": "",
-			"class<zen>": "󰈹",
-			"class<org.mozilla.Thunderbird>": "󰇮",
-			"class<dev.zed.Zed>": "",
-			"class<discord>": "󰙯",
-			"class<Spotify>": "",
-			"class<steam>": "󰓓",
-			"class<org.gnome.Calculator>": "",
-			"class<org.pulseaudio.pavucontrol>": "",
-			"class<btop-scratchpad>": "",
-			"class<thunar>": "󰉋",
-			"class<scratchpad>": ""
-		},
+		"format": "{id}",
 		"on-click": "activate",
 		"sort-by-number": true,
 		"persistent-workspaces": {
