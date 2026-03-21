@@ -31,20 +31,18 @@
 	},
 
 	"hyprland/window": {
-		"format": "{}",
+		"format": "{icon} {title}",
+		"icon": true,
+		"icon-size": 16,
 		"max-length": 40,
 		"separate-outputs": true,
 		"rewrite": {
-			"(.*) - Zen Browser": "󰈹 Zen",
-			"(.*) — Mozilla Firefox": "󰈹 Firefox",
-			"(.*) - Discord": "󰙯 Discord",
-			"(.*) — Spotify(.*)": " Spotify",
-			"(.*) - Steam": "󰓓 Steam",
-			"(.*)kitty": " Kitty",
-			"(.*) - NVIM": " Neovim",
-			"(.*) — Zed": " Zed",
-			"(.*) - Thunderbird": "󰇮 Mail",
-			"": ""
+			"(.*) — Zen Browser": "Zen",
+			"(.*) — Mozilla Firefox": "Firefox",
+			"(.*) - Mozilla Thunderbird": "Mail",
+			"(.*) - Discord": "Discord",
+			"(.*) — Spotify(.*)": "Spotify",
+			"(.*) - Steam": "Steam"
 		}
 	},
 
