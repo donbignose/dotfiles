@@ -68,6 +68,11 @@ tooltip {
     border-right: none;
 }
 
+#workspaces button.empty {
+    color: #475258;
+    padding: 0 4px;
+}
+
 #workspaces button.active {
     color: #A7C080;
     padding: 0 10px;
@@ -137,6 +142,10 @@ tooltip {
     color: #E69875;
 }
 
+#pulseaudio:hover {
+    color: #D3C6AA;
+}
+
 #pulseaudio.muted {
     color: #7A8478;
 }
@@ -147,6 +156,10 @@ tooltip {
     color: #7FBBB3;
 }
 
+#network:hover {
+    color: #D3C6AA;
+}
+
 #network.disconnected {
     color: #7A8478;
 }
@@ -155,6 +168,10 @@ tooltip {
 
 #custom-updates {
     color: #DBBC7F;
+}
+
+#custom-updates:hover {
+    color: #D3C6AA;
 }
 
 /* ── Power ───────────────────────────────────────────────── */
@@ -177,6 +194,17 @@ tooltip {
 
 #tray > .passive {
     -gtk-icon-effect: dim;
+}
+
+/* ── Right-side module separators ────────────────────────── */
+
+#custom-updates,
+#pulseaudio,
+#network,
+#tray {
+    border-right: 1px solid rgba(74, 82, 88, 0.6);
+    padding-right: 8px;
+    margin-right: 4px;
 }
 
 /* ── Drawer children ─────────────────────────────────────── */
