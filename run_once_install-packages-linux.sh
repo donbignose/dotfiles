@@ -125,6 +125,9 @@ if [[ "$PM" == "pacman" ]]; then
 
     # ── AUR packages (requires yay or paru) ──────────
     AUR_PACKAGES=(
+        bibata-cursor-theme-bin
+        colloid-everforest-gtk-theme-git
+        everforest-icon-theme-git
         grimblast-git
         pyprland
         sddm-astronaut-theme
