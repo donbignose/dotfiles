@@ -97,6 +97,7 @@ if [[ "$PM" == "pacman" ]]; then
     # ── AUR packages (requires yay or paru) ──────────
     AUR_PACKAGES=(
         clipman
+        grimblast-git
         zsh-autosuggestions
         zsh-syntax-highlighting
     )
