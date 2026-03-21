@@ -1,0 +1,39 @@
+/* SwayOSD — Kanagawa Wave */
+
+window {
+    padding: 12px 20px;
+    border-radius: 12px;
+    border: 2px solid #54546D;
+    background: alpha(#1F1F28, 0.9);
+}
+
+#container {
+    margin: 8px;
+}
+
+image {
+    color: #DCD7BA;
+}
+
+progressbar:disabled,
+image:disabled {
+    opacity: 0.5;
+}
+
+progressbar {
+    min-height: 6px;
+    border-radius: 999px;
+    background: transparent;
+}
+
+trough {
+    min-height: 6px;
+    border-radius: 999px;
+    background: #2A2A37;
+}
+
+progress {
+    min-height: 6px;
+    border-radius: 999px;
+    background: #98BB6C;
+}

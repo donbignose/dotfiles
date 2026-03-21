@@ -40,9 +40,10 @@ if [[ "$PM" == "pacman" ]]; then
         zsh
         starship
 
-        # Notifications & launcher
+        # Notifications, launcher & OSD
         dunst
         fuzzel
+        swayosd
 
         # Screenshot & clipboard
         grim
@@ -80,6 +81,12 @@ if [[ "$PM" == "pacman" ]]; then
         pipewire
         wireplumber
         pavucontrol
+
+        # Display & input
+        brightnessctl
+
+        # Network
+        networkmanager
 
         # Font
         ttf-jetbrains-mono-nerd
@@ -173,6 +180,17 @@ elif [[ "$PM" == "apt" ]]; then
 fi
 
 # ── Post-install ─────────────────────────────────────────────
+
+# Enable NetworkManager
+if command -v NetworkManager &>/dev/null; then
+    echo "Enabling NetworkManager..."
+    sudo systemctl enable --now NetworkManager
+fi
+
+# Enable SwayOSD
+if command -v swayosd-server &>/dev/null; then
+    systemctl --user enable --now swayosd-libinput-backend.service 2>/dev/null || true
+fi
 
 # Enable SDDM display manager
 if command -v sddm &>/dev/null; then
