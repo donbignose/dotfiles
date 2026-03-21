@@ -105,6 +105,7 @@ if [[ "$PM" == "pacman" ]]; then
 
         # Applications
         thunderbird
+        spotify-launcher
 
         # Misc
         playerctl

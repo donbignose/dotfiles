@@ -99,6 +99,18 @@ tooltip {
     padding: 0 8px;
 }
 
+/* ── Media ───────────────────────────────────────────────── */
+
+#custom-media {
+    color: #A7C080;
+    font-style: italic;
+    padding: 0 8px;
+}
+
+#custom-media:hover {
+    color: #D3C6AA;
+}
+
 /* ── Clock ───────────────────────────────────────────────── */
 
 #clock {
