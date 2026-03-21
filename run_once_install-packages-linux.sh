@@ -108,7 +108,6 @@ if [[ "$PM" == "pacman" ]]; then
 
         # Misc
         playerctl
-        wlogout
         pacman-contrib
     )
 
@@ -120,6 +119,7 @@ if [[ "$PM" == "pacman" ]]; then
         grimblast-git
         pyprland
         sddm-astronaut-theme
+        wlogout
         zen-browser-bin
     )
 
