@@ -29,10 +29,17 @@ Theme-Id=kanagawa
 Theme-API=2.0
 METADATA
 
+# ── Copy wallpaper into theme directory (SDDM can't read /home) ──
+if [[ -f "$HOME/Pictures/wallpaper.png" ]]; then
+    sudo cp "$HOME/Pictures/wallpaper.png" "$THEME_DIR/background.png"
+elif [[ -f "$HOME/Pictures/wallpaper.jpg" ]]; then
+    sudo cp "$HOME/Pictures/wallpaper.jpg" "$THEME_DIR/background.jpg"
+fi
+
 # ── theme.conf ─────────────────────────────────────────────────
 sudo tee "$THEME_DIR/theme.conf" > /dev/null << 'THEMECONF'
 [General]
-background=/home/leo/Pictures/wallpaper.jpg
+background=background.png
 THEMECONF
 
 # ── Main.qml ──────────────────────────────────────────────────

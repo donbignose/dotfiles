@@ -208,7 +208,7 @@ fi
 echo ""
 echo "══════════════════════════════════════════════════"
 echo "  Done! Remember to:"
-echo "  1. Place wallpaper at ~/Pictures/wallpaper.jpg"
+echo "  1. Place wallpaper at ~/Pictures/wallpaper.png"
 echo "  2. Log out and select Hyprland as session"
 echo "  3. Run 'tmux' and press prefix+I to install plugins"
 echo "  4. Log out/in for docker group to take effect"
