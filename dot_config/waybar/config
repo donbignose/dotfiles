@@ -8,7 +8,7 @@
 
 	"modules-left": ["hyprland/workspaces", "hyprland/window"],
 	"modules-center": ["clock"],
-	"modules-right": ["custom/updates", "cpu", "memory", "temperature", "pulseaudio#output", "network", "tray", "custom/power"],
+	"modules-right": ["custom/updates", "cpu", "memory", "temperature", "disk", "pulseaudio#output", "network", "tray", "custom/power"],
 
 	"hyprland/workspaces": {
 		"format": "{id}",
@@ -22,7 +22,15 @@
 	"hyprland/window": {
 		"format": "{}",
 		"max-length": 40,
-		"separate-outputs": true
+		"separate-outputs": true,
+		"rewrite": {
+			"(.*) — Zen Browser": "󰈹 Zen",
+			"(.*) — Mozilla Firefox": "󰈹 Firefox",
+			"(.*) - Mozilla Thunderbird": "󰇮 Mail",
+			"(.*) - Discord": "󰙯 Discord",
+			"(.*) — Spotify(.*)": " Spotify",
+			"(.*) - Steam": "󰓓 Steam"
+		}
 	},
 
 	"clock": {
@@ -60,6 +68,12 @@
 		"critical-threshold": 80,
 		"format-critical": "󰸁 {temperatureC}°C",
 		"format": " {temperatureC}°C"
+	},
+
+	"disk": {
+		"interval": 30,
+		"format": "󰇅 {percentage_used}%",
+		"path": "/"
 	},
 
 	"pulseaudio#output": {
