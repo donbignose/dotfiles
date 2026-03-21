@@ -60,7 +60,12 @@ tooltip {
     margin: 2px 1px;
     border-radius: 10px;
     border-bottom: 2px solid transparent;
+    border-right: 1px solid rgba(74, 82, 88, 0.6);
     transition: all 0.3s cubic-bezier(.55, -0.68, .48, 1.682);
+}
+
+#workspaces button:last-child {
+    border-right: none;
 }
 
 #workspaces button.active {
