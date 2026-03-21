@@ -8,9 +8,7 @@
 
 	"modules-left": ["hyprland/workspaces", "hyprland/window"],
 	"modules-center": ["clock"],
-	"modules-right": ["custom/updates", "cpu", "memory", "temperature", "disk", "pulseaudio#output", "network", "tray", "custom/power"],
-
-	// ── Left ────────────────────────────────────────────────
+	"modules-right": ["custom/updates", "cpu", "memory", "temperature", "pulseaudio#output", "network", "tray", "custom/power"],
 
 	"hyprland/workspaces": {
 		"format": "{id}",
@@ -22,22 +20,10 @@
 	},
 
 	"hyprland/window": {
-		"format": "{icon} {title}",
-		"icon": true,
-		"icon-size": 16,
+		"format": "{}",
 		"max-length": 40,
-		"separate-outputs": true,
-		"rewrite": {
-			"(.*) — Zen Browser": "Zen",
-			"(.*) — Mozilla Firefox": "Firefox",
-			"(.*) - Mozilla Thunderbird": "Mail",
-			"(.*) - Discord": "Discord",
-			"(.*) — Spotify(.*)": "Spotify",
-			"(.*) - Steam": "Steam"
-		}
+		"separate-outputs": true
 	},
-
-	// ── Center ──────────────────────────────────────────────
 
 	"clock": {
 		"interval": 1,
@@ -45,8 +31,6 @@
 		"format-alt": "{:%A, %B %d}",
 		"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
 	},
-
-	// ── Right ───────────────────────────────────────────────
 
 	"custom/updates": {
 		"format": "󰏗 {}",
@@ -76,12 +60,6 @@
 		"critical-threshold": 80,
 		"format-critical": "󰸁 {temperatureC}°C",
 		"format": " {temperatureC}°C"
-	},
-
-	"disk": {
-		"interval": 30,
-		"format": "󰇅 {percentage_used}%",
-		"path": "/"
 	},
 
 	"pulseaudio#output": {
