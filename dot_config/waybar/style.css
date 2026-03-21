@@ -1,115 +1,177 @@
-/* Everforest Dark — Waybar */
+/* Everforest Dark — Waybar (Floating Islands) */
 
 * {
-  border: none;
-  border-radius: 0;
-	font-family: "JetBrains Mono Nerd Font";
-	font-size: 15px;
+    border: none;
+    border-radius: 0;
+    font-family: "JetBrains Mono Nerd Font";
+    font-size: 14px;
+    min-height: 0;
 }
+
+/* ── Transparent base with floating islands ──────────────── */
 
 window#waybar {
-	background: #232A2E;
-	min-height: 0;
+    background: transparent;
 }
 
-/* Groups */
-
-.modules-left, .modules-center, .modules-right {
-  border-radius: 5px;
-	background: #2D353B;
-  color: #D3C6AA;
-  margin: 5px;
-  margin-left: 6px;
+.modules-left,
+.modules-center,
+.modules-right {
+    background: rgba(45, 53, 59, 0.85);
+    border-radius: 14px;
+    padding: 2px 8px;
+    margin: 2px 4px;
 }
 
-/* Label Customization */
+/* ── Shared module styling ───────────────────────────────── */
 
 label, button {
-	padding: 0 5px;
+    padding: 0 4px;
+    color: #D3C6AA;
+    transition: all 0.3s cubic-bezier(.55, -0.68, .48, 1.682);
 }
 
 button label {
-	border: none;
-	background: transparent;
-	padding: 0;
+    border: none;
+    background: transparent;
+    padding: 0;
 }
 
-/* Module Customization */
+tooltip {
+    background: #232A2E;
+    border: 1px solid #475258;
+    border-radius: 8px;
+    color: #D3C6AA;
+}
+
+/* ── Workspaces ──────────────────────────────────────────── */
 
 #workspaces {
-	background: transparent;
+    background: transparent;
 }
 
 #workspaces button {
-	color: #7A8478;
-	margin: 0;
-	padding: 2 2px;
+    color: #7A8478;
+    padding: 0 6px;
+    margin: 2px 1px;
+    border-radius: 10px;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s cubic-bezier(.55, -0.68, .48, 1.682);
 }
 
 #workspaces button.active {
-	color: #A7C080;
+    color: #A7C080;
+    padding: 0 10px;
+    border-bottom: 2px solid #A7C080;
+    background: rgba(167, 192, 128, 0.1);
 }
 
 #workspaces button.urgent {
-	color: #E67E80;
+    color: #E67E80;
+    border-bottom: 2px solid #E67E80;
+    background: rgba(230, 126, 128, 0.1);
 }
+
+#workspaces button:hover {
+    color: #D3C6AA;
+    background: rgba(211, 198, 170, 0.08);
+}
+
+/* ── Window title ────────────────────────────────────────── */
 
 #window {
-  color: #D3C6AA;
+    color: #7A8478;
+    font-style: italic;
+    padding: 0 8px;
 }
+
+/* ── Clock ───────────────────────────────────────────────── */
 
 #clock {
-	color: #D3C6AA;
+    color: #D3C6AA;
+    font-weight: bold;
 }
 
-#idle_inhibitor {
-	color: #7A8478;
-}
+/* ── System drawer group ─────────────────────────────────── */
 
-#idle_inhibitor.activated {
-	color: #DBBC7F;
-}
-
-#pulseaudio.output {
-	color: #D699B6;
-}
-
-#disk {
-  color: #D699B6;
+#cpu {
+    color: #83C092;
 }
 
 #memory {
-	color: #A7C080;
+    color: #A7C080;
 }
 
 #memory.warning {
-	color: #DBBC7F;
+    color: #DBBC7F;
 }
 
 #memory.critical {
-	color: #E67E80;
-}
-
-#cpu {
-  color: #83C092;
+    color: #E67E80;
 }
 
 #temperature {
-	color: #7FBBB3;
+    color: #7FBBB3;
 }
 
 #temperature.critical {
-	color: #E67E80;
+    color: #E67E80;
 }
+
+#disk {
+    color: #D699B6;
+}
+
+/* ── Audio ───────────────────────────────────────────────── */
+
+#pulseaudio {
+    color: #E69875;
+}
+
+#pulseaudio.muted {
+    color: #7A8478;
+}
+
+/* ── Network ─────────────────────────────────────────────── */
 
 #network {
-	color: #E69875;
+    color: #7FBBB3;
 }
+
+#network.disconnected {
+    color: #7A8478;
+}
+
+/* ── Updates ─────────────────────────────────────────────── */
+
+#custom-updates {
+    color: #DBBC7F;
+}
+
+/* ── Power ───────────────────────────────────────────────── */
+
+#custom-power {
+    color: #E67E80;
+    padding: 0 6px;
+    font-size: 15px;
+}
+
+#custom-power:hover {
+    color: #D3C6AA;
+}
+
+/* ── Tray ────────────────────────────────────────────────── */
 
 #tray {
-	color: #9DA9A0;
+    color: #9DA9A0;
 }
 
-#custom-divider {
-	color: #475258;
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+/* ── Drawer children ─────────────────────────────────────── */
+
+.system-drawer {
+    padding: 0 4px;
 }

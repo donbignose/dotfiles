@@ -1,12 +1,17 @@
 {
 	"layer": "top",
 	"position": "top",
-	"height": 32,
-	"modules-left": ["hyprland/workspaces", "hyprland/window", "custom/spotify"],
-	"modules-center": ["clock", "custom/weather"],
-	"modules-right": ["idle_inhibitor", "pulseaudio#output", "disk", "memory", "cpu", "temperature", "network", "custom/divider", "tray"],
+	"height": 38,
+	"margin-top": 4,
+	"margin-left": 8,
+	"margin-right": 8,
 
-	// Left Modules
+	"modules-left": ["hyprland/workspaces", "hyprland/window"],
+	"modules-center": ["clock"],
+	"modules-right": ["custom/updates", "group/system", "pulseaudio#output", "network", "tray", "custom/power"],
+
+	// ── Left ────────────────────────────────────────────────
+
 	"hyprland/workspaces": {
 		"format": "{icon}",
 		"format-icons": {
@@ -27,75 +32,53 @@
 	},
 
 	"hyprland/window": {
-		"format": "| {}",
-		"max-length": 50,
+		"format": "{}",
+		"max-length": 40,
 		"rewrite": {
-			"(.*)Firefox(.*)": "| 󰈹 Firefox",
-			"(.*)Discord(.*)": "| 󰙯 Discord",
-			"(.*)Spotify(.*)": "|  Spotify",
-			"(.*)Steam(.*)": "| 󰓓 Steam",
-			"(.*)kitty(.*)": "|  Kitty",
-			"(.*)nvim(.*)": "|  Neovim"
+			"(.*)Zen Browser(.*)": "󰈹 Zen",
+			"(.*)Firefox(.*)": "󰈹 Firefox",
+			"(.*)Discord(.*)": "󰙯 Discord",
+			"(.*)Spotify(.*)": " Spotify",
+			"(.*)Steam(.*)": "󰓓 Steam",
+			"(.*)kitty(.*)": " Kitty",
+			"(.*)nvim(.*)": " Neovim",
+			"(.*)Zed(.*)": " Zed",
+			"(.*)Thunderbird(.*)": "󰇮 Mail"
 		}
 	},
 
-	"custom/spotify": {
-		"exec": "/usr/bin/python3 ~/.config/waybar/scripts/mediaplayer.py --player spotifyd",
-		"format": "|  {}",
-		"return-type": "json",
-		"on-click": "playerctl play-pause",
-		"on-scroll-up": "playerctl next",
-		"on-scroll-down": "playerctl previous"
-	},
+	// ── Center ──────────────────────────────────────────────
 
-	// Center Modules
 	"clock": {
 		"interval": 1,
-		"format": "{:%X | %A, %B %d, %Y}  |",
+		"format": "  {:%H:%M}",
+		"format-alt": "  {:%A, %B %d, %Y}",
 		"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
 	},
 
-	"custom/weather": {
-		"exec": "python ~/.config/waybar/scripts/weather.py",
-		"restart-interval": 300,
-		"return-type": "json",
-		"on-click": "xdg-open https://weather.com"
+	// ── Right ───────────────────────────────────────────────
+
+	"custom/updates": {
+		"format": "󰏗 {}",
+		"exec": "checkupdates 2>/dev/null | wc -l",
+		"interval": 3600,
+		"tooltip": false,
+		"on-click": "kitty -e sudo pacman -Syu"
 	},
 
-	// Right Modules
-	"idle_inhibitor": {
-		"format": "{icon}",
-		"format-icons": {
-			"activated": "",
-			"deactivated": ""
-		}
-	},
-
-	"pulseaudio#output": {
-		"scroll-step": 5,
-		"format": "{icon} {volume}%",
-		"format-bluetooth": "{volume}% {icon}  {format_source}",
-		"format-bluetooth-muted": " {icon}  {format_source}",
-		"format-muted": "",
-		"format-icons": {
-			"headphone": "󰋋 ",
-			"hands-free": "וֹ",
-			"headset": "  ",
-			"phone": "",
-			"portable": "",
-			"car": "",
-			"default": [""]
+	"group/system": {
+		"orientation": "inherit",
+		"drawer": {
+			"transition-duration": 400,
+			"children-class": "system-drawer",
+			"transition-left-to-right": false
 		},
-		"on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
-		"on-click-right": "pavucontrol",
-		"on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +2%",
-		"on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -2%"
+		"modules": ["cpu", "memory", "temperature", "disk"]
 	},
 
-	"disk": {
-		"interval": 30,
-		"format": "󰇅  {percentage_used}%",
-		"path": "/"
+	"cpu": {
+		"interval": 3,
+		"format": "󰍛 {usage}%"
 	},
 
 	"memory": {
@@ -108,35 +91,50 @@
 		}
 	},
 
-	"cpu": {
-		"interval": 1,
-		"format": "󰍛 {usage}%",
-		"max-length": 10
-	},
-
 	"temperature": {
-		"interval": 1,
+		"interval": 3,
 		"critical-threshold": 80,
 		"format-critical": "󰸁 {temperatureC}°C",
 		"format": " {temperatureC}°C"
 	},
 
-	"network": {
-		"format": "󱘖 {ipaddr}",
-		"format-wifi": "{essid}",
-		"format-ethernet": "ETH-IP: {ipaddr}",
-		"format-linked": "{ifname} (No IP)",
-		"format-disconnected": "󰤮 Disconnected",
-		"format-alt": "{ifname}: {ipaddr}/{cidr}",
-		"tooltip-format": " {bandwidthUpBytes}  {bandwidthDownBytes}",
-		"interval": 1
+	"disk": {
+		"interval": 30,
+		"format": "󰇅 {percentage_used}%",
+		"path": "/"
 	},
 
-	"custom/divider": {
-		"format": "|"
+	"pulseaudio#output": {
+		"scroll-step": 5,
+		"format": "{icon} {volume}%",
+		"format-muted": "󰖁 muted",
+		"format-icons": {
+			"headphone": "󰋋",
+			"default": ["", "", ""]
+		},
+		"on-click": "swayosd-client --output-volume mute-toggle",
+		"on-click-right": "pavucontrol",
+		"on-scroll-up": "swayosd-client --output-volume raise",
+		"on-scroll-down": "swayosd-client --output-volume lower"
+	},
+
+	"network": {
+		"format-wifi": "  {essid}",
+		"format-ethernet": "󰈀 {ipaddr}",
+		"format-disconnected": "󰤮 ",
+		"format-alt": " {bandwidthUpBits}  {bandwidthDownBits}",
+		"tooltip-format": "󰈀 {ifname}\n {ipaddr}/{cidr}\n {bandwidthUpBytes}  {bandwidthDownBytes}",
+		"interval": 5
 	},
 
 	"tray": {
-		"spacing": 4
+		"spacing": 8,
+		"icon-size": 16
+	},
+
+	"custom/power": {
+		"format": "⏻",
+		"tooltip": false,
+		"on-click": "wlogout"
 	}
 }

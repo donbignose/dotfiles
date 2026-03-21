@@ -108,6 +108,8 @@ if [[ "$PM" == "pacman" ]]; then
 
         # Misc
         playerctl
+        wlogout
+        pacman-contrib
     )
 
     echo "Installing pacman packages..."
