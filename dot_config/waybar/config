@@ -33,16 +33,18 @@
 	"hyprland/window": {
 		"format": "{}",
 		"max-length": 40,
+		"separate-outputs": true,
 		"rewrite": {
-			"(.*)Zen Browser(.*)": "󰈹 Zen",
-			"(.*)Firefox(.*)": "󰈹 Firefox",
-			"(.*)Discord(.*)": "󰙯 Discord",
-			"(.*)Spotify(.*)": " Spotify",
-			"(.*)Steam(.*)": "󰓓 Steam",
-			"(.*)kitty(.*)": " Kitty",
-			"(.*)nvim(.*)": " Neovim",
-			"(.*)Zed(.*)": " Zed",
-			"(.*)Thunderbird(.*)": "󰇮 Mail"
+			"(.*) - Zen Browser": "󰈹 Zen",
+			"(.*) — Mozilla Firefox": "󰈹 Firefox",
+			"(.*) - Discord": "󰙯 Discord",
+			"(.*) — Spotify(.*)": " Spotify",
+			"(.*) - Steam": "󰓓 Steam",
+			"(.*)kitty": " Kitty",
+			"(.*) - NVIM": " Neovim",
+			"(.*) — Zed": " Zed",
+			"(.*) - Thunderbird": "󰇮 Mail",
+			"": ""
 		}
 	},
 
@@ -50,8 +52,8 @@
 
 	"clock": {
 		"interval": 1,
-		"format": "  {:%H:%M}",
-		"format-alt": "  {:%A, %B %d, %Y}",
+		"format": "{:%H:%M}",
+		"format-alt": "{:%A, %B %d}",
 		"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
 	},
 
