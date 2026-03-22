@@ -31,6 +31,9 @@ Changes require: `git commit` → `git push` → `chezmoi update`
 - `"icon": true` on `hyprland/window` causes segfaults in waybar 0.15 — avoid
 - Window-rewrite icons: use Python with `\U` escapes to write config (nerd font chars above BMP get lost with Write tool)
 - Config is JSON (JSONC comments OK but strip them if debugging crashes)
+- `group/` modules with `drawer` can also cause segfaults — test incrementally
+- GTK CSS doesn't support `gap` — use `margin` instead
+- **Separate pills in modules-center**: set `.modules-center { background: transparent; }` then target each module individually (`.modules-center #module-name { background: ...; border-radius: ...; margin: 0 8px; }`) — groups and `> *` selectors don't work for this
 
 ## Key Tools
 - **Rofi** — launcher, clipboard, power menu, screenshot menu, wallpaper picker

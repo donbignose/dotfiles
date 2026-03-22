@@ -10,7 +10,9 @@
 		"hyprland/window"
 	],
 	"modules-center": [
+		"custom/media-prev",
 		"custom/media",
+		"custom/media-next",
 		"clock"
 	],
 	"modules-right": [
@@ -171,5 +173,15 @@
 		"on-click": "playerctl play-pause 2>/dev/null || spotify-launcher",
 		"on-click-right": "playerctl next",
 		"escape": true
+	},
+	"custom/media-prev": {
+		"format": "󰒮",
+		"tooltip": false,
+		"on-click": "playerctl previous"
+	},
+	"custom/media-next": {
+		"format": "󰒭",
+		"tooltip": false,
+		"on-click": "playerctl next"
 	}
 }
