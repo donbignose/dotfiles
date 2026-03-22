@@ -1,0 +1,21 @@
+#!/bin/bash
+# Wallpaper Switcher via Rofi
+
+WALLPAPER_DIR="$HOME/Pictures/wallpapers"
+
+CHOICE=$(find "$WALLPAPER_DIR" -type f \( -name "*.png" -o -name "*.jpg" -o -name "*.jpeg" -o -name "*.webp" \) -printf "%f
+" | sort | rofi -dmenu -p "󰂫" -theme-str 'window { width: 350px; }')
+
+[ -z "$CHOICE" ] && exit 0
+
+SELECTED="$WALLPAPER_DIR/$CHOICE"
+
+# Copy as wallpaper.png (the path hyprpaper expects)
+cp "$SELECTED" "$HOME/Pictures/wallpaper.png"
+
+# Reload hyprpaper
+killall hyprpaper 2>/dev/null
+sleep 0.3
+hyprpaper &
+
+notify-send "Wallpaper changed" "$CHOICE" -i preferences-desktop-wallpaper
