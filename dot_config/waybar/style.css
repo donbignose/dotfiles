@@ -218,9 +218,12 @@ tooltip {
     color: #A7C080;
 }
 
-#custom-notification.dnd-notification,
 #custom-notification.dnd-none {
     color: #E67E80;
+}
+
+#custom-notification.dnd-notification {
+    color: #DBBC7F;
 }
 
 /* ── Tray ────────────────────────────────────────────────── */
@@ -238,7 +241,8 @@ tooltip {
 #custom-updates,
 #pulseaudio,
 #network,
-#tray {
+#tray,
+#idle_inhibitor {
     border-right: 1px solid rgba(74, 82, 88, 0.6);
     padding-right: 8px;
     margin-right: 4px;

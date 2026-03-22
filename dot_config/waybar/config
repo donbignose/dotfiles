@@ -16,11 +16,11 @@
 	"modules-right": [
 		"custom/updates",
 		"group/system",
-		"idle_inhibitor",
 		"pulseaudio#output",
 		"network",
-		"custom/notification",
 		"tray",
+		"idle_inhibitor",
+		"custom/notification",
 		"custom/power"
 	],
 	"hyprland/workspaces": {
