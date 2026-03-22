@@ -26,13 +26,15 @@ window#waybar {
 .modules-center {
     background: transparent;
     padding: 0;
+    margin: 2px 4px;
 }
 
-.modules-center > * {
+.modules-center #custom-media,
+.modules-center #clock {
     background: rgba(45, 53, 59, 0.85);
     border-radius: 14px;
     padding: 2px 16px;
-    margin: 2px 4px;
+    margin: 0 8px;
 }
 
 /* ── Shared module styling ───────────────────────────────── */
