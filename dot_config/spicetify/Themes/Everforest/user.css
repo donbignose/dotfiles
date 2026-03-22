@@ -1,0 +1,28 @@
+/* Everforest Dark — Spicetify */
+
+:root {
+    --font-family: 'JetBrains Mono Nerd Font', monospace;
+    --border-radius: 8px;
+}
+
+/* Smoother corners */
+.Card,
+.CardBig,
+.main-card-card {
+    border-radius: 12px !important;
+}
+
+/* Sidebar */
+.Root__nav-bar {
+    background: var(--spice-sidebar) !important;
+}
+
+/* Now playing bar */
+.Root__now-playing-bar {
+    background: var(--spice-player) !important;
+}
+
+/* Progress bar */
+.playback-bar .progress-bar__slider {
+    border-radius: 50% !important;
+}
