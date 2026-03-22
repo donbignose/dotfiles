@@ -26,13 +26,13 @@ window#waybar {
 .modules-center {
     background: transparent;
     padding: 0;
-    gap: 8px;
 }
 
 .modules-center > * {
     background: rgba(45, 53, 59, 0.85);
     border-radius: 14px;
     padding: 2px 16px;
+    margin: 2px 4px;
 }
 
 /* ── Shared module styling ───────────────────────────────── */
