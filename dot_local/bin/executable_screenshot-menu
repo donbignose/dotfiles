@@ -14,7 +14,13 @@ if pgrep -x wf-recorder > /dev/null; then
     exit 0
 fi
 
-CHOICE=$(printf "󰹑  Area → Save\n󰍹  Screen → Save\n󰆏  Area → Clipboard\n󰶟  Screen → Clipboard\n󰖯  Window → Save\n  Record Area\n  Record Screen" | rofi -dmenu -p "󰄀" -theme-str 'window { width: 300px; } listview { lines: 7; }')
+CHOICE=$(printf "󰱝  Area → Save
+󰍹  Screen → Save
+󰆏  Area → Clipboard
+󰴟  Screen → Clipboard
+󰖮  Window → Save
+󰓡  Record Area
+󰓡  Record Screen" | rofi -dmenu -p "󰄀" -theme-str 'window { width: 320px; } listview { lines: 7; }')
 
 case "$CHOICE" in
     *"Area → Save")

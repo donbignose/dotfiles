@@ -1,7 +1,11 @@
 #!/bin/bash
 # Power Menu via Rofi
 
-CHOICE=$(printf "  Lock\n  Logout\n⏾  Suspend\n  Reboot\n  Shutdown" | rofi -dmenu -p "⏻" -theme-str 'window { width: 250px; } listview { lines: 5; }')
+CHOICE=$(printf "󰌾  Lock
+󰍃  Logout
+󰒲  Suspend
+󰜉  Reboot
+󰐥  Shutdown" | rofi -dmenu -p "󰐥" -theme-str 'window { width: 280px; } listview { lines: 5; }')
 
 case "$CHOICE" in
     *Lock)      hyprlock ;;
