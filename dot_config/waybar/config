@@ -166,10 +166,8 @@
 	"custom/media": {
 		"format": "󰓇 {}",
 		"max-length": 35,
-		"return-type": "json",
-		"exec": "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{title}}\", \"class\": \"playing\"}' -F 2>/dev/null",
-		"exec-if": "true",
-		"on-click": "playerctl play-pause",
+		"exec": "playerctl metadata --format '{{ artist }} - {{ title }}' --follow 2>/dev/null || echo 'No media'",
+		"on-click": "playerctl play-pause 2>/dev/null || spotify-launcher",
 		"on-click-right": "playerctl next",
 		"escape": true,
 		"interval": "once"
