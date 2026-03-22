@@ -131,7 +131,6 @@ if [[ "$PM" == "pacman" ]]; then
         grimblast-git
         pyprland
         sddm-astronaut-theme
-        wlogout
         zen-browser-bin
     )
 
