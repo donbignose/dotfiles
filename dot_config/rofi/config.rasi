@@ -36,6 +36,8 @@ window {
     border-color:     @accent;
     border-radius:    14px;
     padding:          0;
+    location:         center;
+    y-offset:         -15%;
 }
 
 mainbox {
