@@ -3,14 +3,12 @@
 
 while true; do
     if playerctl status &>/dev/null; then
-        playerctl metadata --format '{{ playerName }}|||{{ artist }} - {{ title }}' --follow 2>/dev/null | while IFS='|||' read -r player rest; do
-            case "$player" in
-                spotify|Spotify) icon="󰓇" ;;
-                firefox|zen|chromium) icon="󰈹" ;;
-                *) icon="󰝚" ;;
-            esac
-            echo "$icon $rest"
-        done
+        PLAYER=$(playerctl metadata --format '{{ playerName }}' 2>/dev/null)
+        case "$PLAYER" in
+            firefox|zen|chromium) ICON="󰈹" ;;
+            *) ICON="󰓇" ;;
+        esac
+        playerctl metadata --format "$ICON {{ artist }} - {{ title }}" --follow 2>/dev/null
     else
         echo "󰓇  Spotify"
         sleep 5
