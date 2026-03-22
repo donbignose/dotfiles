@@ -134,7 +134,7 @@
 	"custom/power": {
 		"format": "⏻",
 		"tooltip": false,
-		"on-click": "wlogout"
+		"on-click": "$HOME/.local/bin/power-menu"
 	},
 	"custom/media": {
 		"format": "󰓇 {}",

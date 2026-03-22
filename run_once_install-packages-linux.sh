@@ -42,7 +42,7 @@ if [[ "$PM" == "pacman" ]]; then
 
         # Notifications, launcher & OSD
         swaync
-        fuzzel
+        rofi
         swayosd
 
         # Screenshot & clipboard
