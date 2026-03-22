@@ -1,5 +1,5 @@
 #!/bin/bash
-# Waybar media module — shows track with player-specific icon
+# Waybar media module — only shows when a player is active
 
 while true; do
     if playerctl status &>/dev/null; then
@@ -9,8 +9,6 @@ while true; do
             *) ICON="󰓇" ;;
         esac
         playerctl metadata --format "$ICON {{ artist }} - {{ title }}" --follow 2>/dev/null
-    else
-        echo "󰓇  Spotify"
-        sleep 5
     fi
+    sleep 5
 done
