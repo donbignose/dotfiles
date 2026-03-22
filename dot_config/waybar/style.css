@@ -99,31 +99,14 @@ tooltip {
     padding: 0 8px;
 }
 
-/* ── Media pill in center ─────────────────────────────────── */
+/* ── Media ───────────────────────────────────────────────── */
 
-#custom-media-icon {
+#custom-media {
     color: #A7C080;
-    padding: 0 4px 0 2px;
-    font-size: 15px;
-}
-
-#custom-media-icon:hover {
-    color: #D3C6AA;
-}
-
-#custom-media-title {
-    color: #9DA9A0;
     font-style: italic;
-    padding: 0 4px;
 }
 
-#custom-media-next {
-    color: #7A8478;
-    padding: 0 2px 0 4px;
-    font-size: 13px;
-}
-
-#custom-media-next:hover {
+#custom-media:hover {
     color: #D3C6AA;
 }
 
