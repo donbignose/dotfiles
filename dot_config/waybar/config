@@ -7,13 +7,13 @@
 	"margin-right": 8,
 	"modules-left": [
 		"hyprland/workspaces",
-		"hyprland/window",
-		"custom/media"
+		"hyprland/window"
 	],
 	"modules-center": [
 		"clock"
 	],
 	"modules-right": [
+		"group/media",
 		"custom/updates",
 		"group/system",
 		"pulseaudio#output",
@@ -136,14 +136,6 @@
 		"tooltip": false,
 		"on-click": "$HOME/.local/bin/power-menu"
 	},
-	"custom/media": {
-		"format": "󰓇 {}",
-		"max-length": 35,
-		"exec": "playerctl metadata --format \"{{ artist }} - {{ title }}\" --follow 2>/dev/null",
-		"on-click": "playerctl play-pause",
-		"on-scroll-up": "playerctl next",
-		"on-scroll-down": "playerctl previous"
-	},
 	"idle_inhibitor": {
 		"format": "{icon}",
 		"format-icons": {
@@ -170,5 +162,39 @@
 		"on-click": "swaync-client -t -sw",
 		"on-click-right": "swaync-client -d -sw",
 		"escape": true
+	},
+	"group/media": {
+		"orientation": "inherit",
+		"modules": [
+			"custom/media-icon",
+			"custom/media-title",
+			"custom/media-next"
+		]
+	},
+	"custom/media-icon": {
+		"format": "{icon}",
+		"return-type": "json",
+		"format-icons": {
+			"Playing": "󰐊",
+			"Paused": "󰐌",
+			"default": "󰓇"
+		},
+		"exec": "playerctl -a metadata --format '{\"alt\": \"{{status}}\", \"tooltip\": \"{{playerName}}\"}' -F 2>/dev/null || echo '{\"alt\": \"default\", \"tooltip\": \"Open Spotify\"}'",
+		"on-click": "playerctl -p spotify status 2>/dev/null && playerctl -p spotify play-pause || spotify-launcher",
+		"interval": "once",
+		"escape": true
+	},
+	"custom/media-title": {
+		"format": "{}",
+		"max-length": 30,
+		"exec": "playerctl -a metadata --format '{{artist}} - {{title}}' -F 2>/dev/null",
+		"on-click": "playerctl play-pause",
+		"escape": true,
+		"interval": "once"
+	},
+	"custom/media-next": {
+		"format": "󰒭",
+		"tooltip": false,
+		"on-click": "playerctl next"
 	}
 }
