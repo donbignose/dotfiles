@@ -20,3 +20,10 @@ class = "btop-scratchpad"
 animation = "fromTop"
 size = "80% 70%"
 lazy = true
+
+[scratchpads.sql]
+command = "kitty --class lazysql-scratchpad -e lazysql"
+class = "lazysql-scratchpad"
+animation = "fromBottom"
+size = "80% 70%"
+lazy = true
