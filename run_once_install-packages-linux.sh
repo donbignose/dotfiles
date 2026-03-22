@@ -93,8 +93,10 @@ if [[ "$PM" == "pacman" ]]; then
         # Display & input
         brightnessctl
 
-        # Network
+        # Network & Bluetooth
         networkmanager
+        bluez
+        bluez-utils
 
         # Font
         ttf-jetbrains-mono-nerd
@@ -130,6 +132,7 @@ if [[ "$PM" == "pacman" ]]; then
         everforest-icon-theme-git
         grimblast-git
         pyprland
+        rofi-bluetooth-git
         sddm-astronaut-theme
         zen-browser-bin
     )

@@ -202,6 +202,25 @@ tooltip {
     color: #7A8478;
 }
 
+/* ── Bluetooth ──────────────────────────────────────────── */
+
+#bluetooth {
+    color: #7FBBB3;
+}
+
+#bluetooth:hover {
+    color: #D3C6AA;
+}
+
+#bluetooth.connected {
+    color: #A7C080;
+}
+
+#bluetooth.disabled,
+#bluetooth.off {
+    color: #7A8478;
+}
+
 /* ── Updates ─────────────────────────────────────────────── */
 
 #custom-updates {
@@ -257,6 +276,7 @@ tooltip {
 #custom-updates,
 #pulseaudio,
 #network,
+#bluetooth,
 #tray,
 #idle_inhibitor {
     border-right: 1px solid rgba(74, 82, 88, 0.6);
