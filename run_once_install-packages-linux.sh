@@ -246,6 +246,13 @@ if [[ "$SHELL" != *"zsh"* ]]; then
     chsh -s "$(which zsh)"
 fi
 
+# Install Everforest cursors
+if [ ! -d "$HOME/.icons/everforest-cursors" ]; then
+    echo "Installing Everforest cursors..."
+    mkdir -p "$HOME/.icons"
+    wget -cO- https://github.com/talwat/everforest-cursors/releases/latest/download/everforest-cursors-variants.tar.bz2 | tar xfj - -C "$HOME/.icons"
+fi
+
 # Create screenshots directory
 mkdir -p ~/Pictures/Screenshots
 
