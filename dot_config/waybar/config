@@ -10,10 +10,10 @@
 		"hyprland/window"
 	],
 	"modules-center": [
+		"group/media-pill",
 		"clock"
 	],
 	"modules-right": [
-		"group/media",
 		"custom/updates",
 		"group/system",
 		"pulseaudio#output",
@@ -163,7 +163,7 @@
 		"on-click-right": "swaync-client -d -sw",
 		"escape": true
 	},
-	"group/media": {
+	"group/media-pill": {
 		"orientation": "inherit",
 		"modules": [
 			"custom/media-icon",
