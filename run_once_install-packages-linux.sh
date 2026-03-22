@@ -74,6 +74,7 @@ if [[ "$PM" == "pacman" ]]; then
         docker
         docker-compose
         git
+        git-delta
         gcc
         make
         nodejs
