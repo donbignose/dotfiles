@@ -168,8 +168,7 @@
 	"custom/media": {
 		"format": "󰓇 {}",
 		"max-length": 35,
-		"exec": "playerctl metadata --format '{{ artist }} - {{ title }}' --follow",
-		"exec-if": "true",
+		"exec": "$HOME/.local/bin/waybar-media",
 		"on-click": "playerctl play-pause 2>/dev/null || spotify-launcher",
 		"on-click-right": "playerctl next",
 		"escape": true
