@@ -99,7 +99,14 @@ tooltip {
     padding: 0 8px;
 }
 
-/* ── Media pill ──────────────────────────────────────────── */
+/* ── Media pill (visually detached) ──────────────────────── */
+
+#group-media {
+    background: rgba(45, 53, 59, 0.85);
+    border-radius: 14px;
+    padding: 2px 10px;
+    margin-right: 6px;
+}
 
 #custom-media-icon {
     color: #A7C080;
