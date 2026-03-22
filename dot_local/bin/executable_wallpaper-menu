@@ -1,7 +1,7 @@
 #!/bin/bash
-# Wallpaper Switcher via Rofi with image previews
+# Wallpaper Switcher via Rofi — supports images and animated GIFs via swww
 
-WALLPAPER_DIR="$HOME/Pictures/wallpapers"
+WALLPAPER_DIR="$HOME/Pictures/Wallpapers"
 THUMB_DIR="$HOME/.cache/wallpaper-thumbs"
 mkdir -p "$THUMB_DIR"
 
@@ -10,14 +10,20 @@ ENTRIES=""
 while IFS= read -r img; do
     [ -f "$img" ] || continue
     NAME=$(basename "$img")
-    THUMB="$THUMB_DIR/$NAME.png"
+    THUMB="$THUMB_DIR/${NAME}.png"
 
     if [ ! -f "$THUMB" ] || [ "$img" -nt "$THUMB" ]; then
-        magick "$img" -resize 200x120^ -gravity center -extent 200x120 "$THUMB" 2>/dev/null
+        if [[ "$img" =~ \.(gif)$ ]]; then
+            magick "${img}[0]" -resize 200x120^ -gravity center -extent 200x120 "$THUMB" 2>/dev/null
+        elif [[ "$img" =~ \.(mp4|mkv|webm)$ ]]; then
+            ffmpeg -y -i "$img" -vframes 1 -vf "scale=200:120:force_original_aspect_ratio=increase,crop=200:120" "$THUMB" 2>/dev/null
+        else
+            magick "$img" -resize 200x120^ -gravity center -extent 200x120 "$THUMB" 2>/dev/null
+        fi
     fi
 
     ENTRIES="${ENTRIES}${NAME}\x00icon\x1f${THUMB}\n"
-done < <(find "$WALLPAPER_DIR" -type f \( -name "*.png" -o -name "*.jpg" -o -name "*.jpeg" -o -name "*.webp" \) | sort)
+done < <(find "$WALLPAPER_DIR" -type f \( -name "*.png" -o -name "*.jpg" -o -name "*.jpeg" -o -name "*.webp" -o -name "*.gif" \) | sort)
 
 [ -z "$ENTRIES" ] && { notify-send "No wallpapers" "Add images to $WALLPAPER_DIR"; exit 1; }
 
@@ -26,10 +32,7 @@ CHOICE=$(echo -en "$ENTRIES" | rofi -dmenu -p "󰂫" -show-icons -theme-str 'win
 [ -z "$CHOICE" ] && exit 0
 
 SELECTED="$WALLPAPER_DIR/$CHOICE"
-cp "$SELECTED" "$HOME/Pictures/wallpaper.png"
 
-killall hyprpaper 2>/dev/null
-sleep 0.3
-hyprpaper &
+swww img "$SELECTED" --transition-type grow --transition-pos "$(hyprctl cursorpos)" --transition-duration 2
 
 notify-send "Wallpaper changed" "$CHOICE" -i preferences-desktop-wallpaper
