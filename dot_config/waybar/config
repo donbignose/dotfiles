@@ -10,8 +10,8 @@
 		"hyprland/window"
 	],
 	"modules-center": [
-		"custom/media",
-		"clock"
+		"group/media-pill",
+		"group/clock-pill"
 	],
 	"modules-right": [
 		"custom/updates",
@@ -171,5 +171,17 @@
 		"on-click": "playerctl play-pause 2>/dev/null || spotify-launcher",
 		"on-click-right": "playerctl next",
 		"escape": true
+	},
+	"group/media-pill": {
+		"orientation": "inherit",
+		"modules": [
+			"custom/media"
+		]
+	},
+	"group/clock-pill": {
+		"orientation": "inherit",
+		"modules": [
+			"clock"
+		]
 	}
 }
