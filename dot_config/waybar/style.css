@@ -36,24 +36,11 @@ window#waybar {
     margin: 0 8px;
 }
 
-.modules-center #custom-media-prev {
-    background: rgba(45, 53, 59, 0.85);
-    border-radius: 14px 0 0 14px;
-    padding: 2px 2px 2px 12px;
-    margin-left: 8px;
-}
-
 .modules-center #custom-media {
     background: rgba(45, 53, 59, 0.85);
-    border-radius: 0;
-    padding: 2px 8px;
-}
-
-.modules-center #custom-media-next {
-    background: rgba(45, 53, 59, 0.85);
-    border-radius: 0 14px 14px 0;
-    padding: 2px 12px 2px 2px;
-    margin-right: 8px;
+    border-radius: 14px;
+    padding: 2px 16px;
+    margin: 0 8px;
 }
 
 /* ── Shared module styling ───────────────────────────────── */
@@ -139,16 +126,6 @@ tooltip {
     color: #D3C6AA;
 }
 
-#custom-media-prev,
-#custom-media-next {
-    color: #7A8478;
-    font-size: 13px;
-}
-
-#custom-media-prev:hover,
-#custom-media-next:hover {
-    color: #D3C6AA;
-}
 
 /* ── Clock ───────────────────────────────────────────────── */
 

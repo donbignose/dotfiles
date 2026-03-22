@@ -10,9 +10,7 @@
 		"hyprland/window"
 	],
 	"modules-center": [
-		"custom/media-prev",
 		"custom/media",
-		"custom/media-next",
 		"clock"
 	],
 	"modules-right": [
@@ -166,21 +164,13 @@
 		"escape": true
 	},
 	"custom/media": {
-		"format": "󰓇 {}",
-		"max-length": 35,
+		"format": "{}",
+		"max-length": 50,
 		"exec": "$HOME/.local/bin/waybar-media",
 		"on-click": "playerctl play-pause 2>/dev/null || spotify-launcher",
 		"on-click-right": "playerctl next",
+		"on-scroll-up": "playerctl next",
+		"on-scroll-down": "playerctl previous",
 		"escape": true
-	},
-	"custom/media-prev": {
-		"format": "󰒮",
-		"tooltip": false,
-		"on-click": "playerctl previous"
-	},
-	"custom/media-next": {
-		"format": "󰒭",
-		"tooltip": false,
-		"on-click": "playerctl next"
 	}
 }

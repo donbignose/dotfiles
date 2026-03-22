@@ -1,11 +1,11 @@
 #!/bin/bash
-# Waybar media module — outputs current track or "Spotify" when idle
+# Waybar media module — shows controls when playing, spotify logo when idle
 
 while true; do
     if playerctl status &>/dev/null; then
-        playerctl metadata --format '{{ artist }} - {{ title }}' --follow 2>/dev/null
+        playerctl metadata --format '󰒮  󰓇 {{ artist }} - {{ title }}  󰒭' --follow 2>/dev/null
     else
-        echo "Spotify"
+        echo "󰓇  Spotify"
         sleep 5
     fi
 done
