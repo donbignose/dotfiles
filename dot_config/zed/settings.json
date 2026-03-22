@@ -7,6 +7,9 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "git_panel": {
+    "tree_view": true,
+  },
   "agent_servers": {
     "claude-acp": {
       "type": "registry",
@@ -17,7 +20,7 @@
   },
   "vim_mode": true,
   "vim": {
-    "sneak": true
+    "sneak": true,
   },
   "icon_theme": {
     "mode": "dark",
@@ -31,11 +34,19 @@
   "theme": {
     "mode": "dark",
     "light": "Gruvbox Light",
-    "dark": "Kanagawa Dragon",
+    "dark": "Everforest Dark Hard (blur)",
   },
 
   "terminal": {
     "font_family": "JetBrainsMono Nerd Font",
     "font_size": 13,
+  },
+  "lsp": {
+    "ruff": {
+      "binary": {
+        "path": "/home/leo/.local/bin/ruff",
+        "arguments": ["server"],
+      },
+    },
   },
 }
