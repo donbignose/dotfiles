@@ -1,71 +1,64 @@
 #!/bin/bash
-#
-# Load defined colours
+
 source "$CONFIG_DIR/colors.sh"
-
-# This is a demo config to showcase some of the most important commands.
-# It is meant to be changed and configured, as it is intentionally kept sparse.
-# For a (much) more advanced configuration example see my dotfiles:
-# https://github.com/FelixKratz/dotfiles
-
 PLUGIN_DIR="$CONFIG_DIR/plugins"
 source "$CONFIG_DIR/items.sh"
 
-##### Bar Appearance #####
-# Configuring the general appearance of the bar.
-# These are only some of the options available. For all options see:
-# https://felixkratz.github.io/SketchyBar/config/bar
-# If you are looking for other colors, see the color picker:
-# https://felixkratz.github.io/SketchyBar/config/tricks#color-picker
-
+# ── Bar Appearance ───────────────────────────────────────────
 bar=(
 	position=top
 	sticky=on
-	y_offset=2
-	height=31
-	margin=7
-	padding_left=10
-	padding_right=10
-	corner_radius=11
-	blur_radius=30
-	color=$BAR_COLOR
+	y_offset=4
+	height=37
+	margin=0
+	padding_left=8
+	padding_right=8
+	corner_radius=0
+	blur_radius=0
+	color=$TRANSPARENT
+	shadow=off
 )
-
 sketchybar --bar "${bar[@]}"
 
-##### Changing Defaults #####
-# We now change some default values, which are applied to all further items.
-# For a full list of all available item properties see:
-# https://felixkratz.github.io/SketchyBar/config/items
-
+# ── Defaults ─────────────────────────────────────────────────
 default=(
-	icon.font="Liga SFMono Nerd Font:Bold:17.0"
-	label.font="Liga SFMono Nerd Font:Bold:14.0"
+	icon.font="SF Pro:Semibold:17.0"
+	label.font="SF Pro:Medium:13.0"
 	icon.color=$ACCENT_COLOR
 	label.color=$ACCENT_COLOR
-	padding_left=5
-	padding_right=5
-	background.color=$ITEM_BG_COLOR
-	background.corner_radius=5
-	background.height=24
-	icon.padding_left=10
+	padding_left=4
+	padding_right=4
+	background.color=$TRANSPARENT
+	background.corner_radius=10
+	background.height=28
+	background.drawing=off
+	icon.padding_left=8
 	icon.padding_right=4
 	label.padding_left=4
-	label.padding_right=10
+	label.padding_right=8
 )
 sketchybar --default "${default[@]}"
 
-# --- Left Side Items ---
+# ── Left ─────────────────────────────────────────────────────
 spaces left
 front_app left
 
-# -- Right Side Of Notch Items --
-media e
-
-# --- Right Side Items ---
-calendar right
+# ── Right (ordered right-to-left) ────────────────────────────
+datetime right
+spacer right 1
+wifi right
+bluetooth right
+spacer right 2
 volume right
+spacer right 3
 battery right
 cpu right
-##### Force all scripts to run the first time (never do this in a script) #####
+spacer right 4
+docker right
+spacer right 5
+media right
+
+# ── Apply pill backgrounds ───────────────────────────────────
+apply_pills
+
 sketchybar --update

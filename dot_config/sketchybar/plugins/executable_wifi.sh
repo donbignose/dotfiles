@@ -1,30 +1,25 @@
 #!/bin/bash
+source "$CONFIG_DIR/colors.sh"
 
-update() {
-	INFO="$(networksetup -listallhardwareports | awk '/Wi-Fi/{getline; print $2}' | xargs networksetup -getairportnetwork | sed "s/Current Wi-Fi Network: //")"
-	LABEL="$INFO ($(ipconfig getifaddr en0))"
-	ICON="$([ -n "$INFO" ] && echo "􀙇" || echo "􀙈")"
-	COLOR="$([ -n "$INFO" ] && echo "$ACCENT_COLOR" || echo "$ACCENT_COLOR")"
+IP=$(ipconfig getifaddr en0 2>/dev/null)
 
-	sketchybar --set $NAME icon="$ICON" color=$COLOR label="$LABEL"
-}
+if [ -n "$IP" ]; then
+	RSSI=$(system_profiler SPAirPortDataType 2>/dev/null | awk '/Signal \/ Noise/ {match($0, /-[0-9]+/); print substr($0, RSTART, RLENGTH); exit}')
+	RSSI=${RSSI:-"-100"}
 
-click() {
-	CURRENT_WIDTH="$(sketchybar --query $NAME | jq -r .label.width)"
-
-	WIDTH=0
-	if [ "$CURRENT_WIDTH" -eq "0" ]; then
-		WIDTH=dynamic
+	if [ "$RSSI" -gt -60 ]; then
+		ICON="󰤨"
+	elif [ "$RSSI" -gt -70 ]; then
+		ICON="󰤥"
+	elif [ "$RSSI" -gt -80 ]; then
+		ICON="󰤢"
+	else
+		ICON="󰤟"
 	fi
+	COLOR=$ACCENT_COLOR
+else
+	ICON="󰤭"
+	COLOR=$ACCENT_RED
+fi
 
-	sketchybar --animate sin 20 --set $NAME label.width="$WIDTH"
-}
-
-case "$SENDER" in
-"wifi_change")
-	update
-	;;
-"mouse.clicked")
-	click
-	;;
-esac
+sketchybar --set "$NAME" icon="$ICON" icon.color="$COLOR"
