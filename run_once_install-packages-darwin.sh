@@ -61,9 +61,17 @@ echo "Installing formulae..."
 brew install "${FORMULAE[@]}"
 
 # ── macOS window management ──────────────────────────────────
-echo "Installing yabai and skhd..."
-brew install koekeishiya/formulae/yabai
+echo "Installing skhd..."
 brew install koekeishiya/formulae/skhd
+
+# Install yabai via official script (fixed path, permissions persist across upgrades)
+if ! command -v yabai &>/dev/null; then
+    echo "Installing yabai via official installer..."
+    sudo mkdir -p /usr/local/bin /usr/local/share/man
+    curl -L https://raw.githubusercontent.com/koekeishiya/yabai/master/scripts/install.sh -o /tmp/install-yabai.sh
+    sudo sh /tmp/install-yabai.sh /usr/local/bin /usr/local/share/man
+    rm -f /tmp/install-yabai.sh
+fi
 
 # ── Casks ────────────────────────────────────────────────────
 CASKS=(
