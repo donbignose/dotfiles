@@ -101,6 +101,7 @@ alias ...="cd ../.."
 alias grep="grep --color=auto"
 
 # ── Plugins ──────────────────────────────────────────────────
+{{ if eq .chezmoi.os "linux" -}}
 # zsh-autosuggestions
 [[ -f /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]] && \
   source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -108,6 +109,15 @@ alias grep="grep --color=auto"
 # zsh-syntax-highlighting (must be last plugin)
 [[ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] && \
   source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+{{- else if eq .chezmoi.os "darwin" -}}
+# zsh-autosuggestions
+[[ -f /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]] && \
+  source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# zsh-syntax-highlighting (must be last plugin)
+[[ -f /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] && \
+  source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+{{- end }}
 
 # ── Starship Prompt ──────────────────────────────────────────
 eval "$(starship init zsh)"
