@@ -2,7 +2,7 @@
 plugins = ["scratchpads", "expose"]
 
 [scratchpads.term]
-command = "kitty --class scratchpad"
+command = "ghostty --class=scratchpad"
 class = "scratchpad"
 animation = "fromTop"
 size = "75% 60%"
@@ -15,14 +15,14 @@ size = "40% 90%"
 lazy = true
 
 [scratchpads.btop]
-command = "kitty --class btop-scratchpad -e btop"
+command = "ghostty --class=btop-scratchpad -e btop"
 class = "btop-scratchpad"
 animation = "fromTop"
 size = "80% 70%"
 lazy = true
 
 [scratchpads.sql]
-command = "kitty --class lazysql-scratchpad -e lazysql"
+command = "ghostty --class=lazysql-scratchpad -e lazysql"
 class = "lazysql-scratchpad"
 animation = "fromBottom"
 size = "80% 70%"

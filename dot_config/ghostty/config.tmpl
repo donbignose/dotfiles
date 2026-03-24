@@ -1,4 +1,8 @@
+{{ if eq .chezmoi.os "darwin" -}}
 theme = Vesper
+{{- else -}}
+theme = Everforest Dark Hard
+{{- end }}
 font-family = JetBrainsMono Nerd Font
 font-size = 14
 font-feature = -calt
@@ -18,11 +22,13 @@ mouse-hide-while-typing = true
 copy-on-select = clipboard
 confirm-close-surface = false
 
+{{ if eq .chezmoi.os "darwin" -}}
 macos-titlebar-style = hidden
 macos-option-as-alt = left
 
-# Quake-style dropdown terminal (Super+Minus, like pyprland on Linux)
+# Quake-style dropdown terminal
 keybind = global:cmd+§=toggle_quick_terminal
 quick-terminal-position = top
 quick-terminal-screen = main
 quick-terminal-animation-duration = 0.15
+{{- end }}

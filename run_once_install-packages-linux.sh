@@ -36,7 +36,7 @@ if [[ "$PM" == "pacman" ]]; then
         keyd
 
         # Terminal & shell
-        kitty
+        ghostty
         zsh
         starship
 
