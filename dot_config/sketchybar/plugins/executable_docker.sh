@@ -8,10 +8,10 @@ update() {
 
 		if [ "$CONTAINERS" -gt 0 ]; then
 			LABEL="$CONTAINERS"
-			COLOR=$ACCENT_GREEN
+			COLOR=$ACCENT_COLOR
 		else
 			LABEL=""
-			COLOR=$ACCENT_COLOR
+			COLOR=$FG_DIM
 		fi
 		sketchybar --set "$NAME" icon="󰡨" icon.color="$COLOR" label="$LABEL" label.drawing=on
 	else

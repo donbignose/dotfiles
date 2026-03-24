@@ -1,0 +1,196 @@
+{{ if eq .chezmoi.os "darwin" -}}
+# Starship Prompt — Vesper
+
+palette = 'vesper'
+
+format = """
+[](fg:accent)$os[](fg:accent bg:surface)$directory[](fg:surface bg:border)$git_branch$git_status[](fg:border)$character"""
+
+right_format = """[](fg:border)$nodejs$python$rust$golang$docker_context[](fg:surface bg:border)$cmd_duration[](fg:accent bg:surface)$time[](fg:accent)"""
+
+[profiles]
+transient = "$character"
+
+[palettes.vesper]
+bg = '#101010'
+surface = '#232323'
+border = '#343434'
+fg = '#FFFFFF'
+muted = '#505050'
+dim = '#A0A0A0'
+accent = '#FFC799'
+mint = '#99FFE4'
+red = '#FF8080'
+deep = '#FF7300'
+
+[os]
+disabled = false
+style = "fg:bg bg:accent bold"
+
+[os.symbols]
+Macos = " "
+
+[directory]
+style = "fg:fg bg:surface"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[git_branch]
+symbol = ""
+style = "fg:accent bg:border"
+format = "[ $symbol $branch ]($style)"
+
+[git_status]
+style = "fg:dim bg:border"
+format = "[$all_status$ahead_behind]($style)"
+ahead = "[⇡${count}](fg:mint bg:border) "
+behind = "[⇣${count}](fg:red bg:border) "
+diverged = "[⇅ ⇡${ahead_count} ⇣${behind_count}](fg:red bg:border) "
+modified = "[!${count}](fg:accent bg:border) "
+staged = "[+${count}](fg:mint bg:border) "
+untracked = "[?${count}](fg:dim bg:border) "
+stashed = "[*${count}](fg:accent bg:border) "
+deleted = "[✘${count}](fg:red bg:border) "
+
+[nodejs]
+style = "fg:mint bg:border"
+format = "[  $version ]($style)"
+detect_files = ["package.json", ".node-version"]
+
+[python]
+style = "fg:accent bg:border"
+format = "[  $version ]($style)"
+
+[rust]
+style = "fg:red bg:border"
+format = "[  $version ]($style)"
+
+[golang]
+style = "fg:mint bg:border"
+format = "[  $version ]($style)"
+
+[docker_context]
+style = "fg:mint bg:border"
+format = "[ 󰡨 $context ]($style)"
+only_with_files = true
+
+[cmd_duration]
+style = "fg:muted bg:surface"
+format = "[ 󰅐 $duration ]($style)"
+min_time = 2_000
+
+[time]
+disabled = false
+style = "fg:bg bg:accent bold"
+format = "[ $time ]($style)"
+time_format = "%H:%M"
+
+[character]
+success_symbol = "[❯](bold fg:accent)"
+error_symbol = "[❯](bold fg:red)"
+vimcmd_symbol = "[❮](bold fg:mint)"
+vimcmd_replace_symbol = "[❮](bold fg:red)"
+vimcmd_visual_symbol = "[❮](bold fg:accent)"
+{{- else -}}
+# Starship Prompt — Everforest Dark
+
+palette = 'everforest'
+
+format = """
+[](fg:green)$os[](fg:green bg:surface)$directory[](fg:surface bg:border)$git_branch$git_status[](fg:border)$character"""
+
+right_format = """[](fg:border)$nodejs$python$rust$golang$docker_context[](fg:surface bg:border)$cmd_duration[](fg:green bg:surface)$time[](fg:green)"""
+
+[profiles]
+transient = "$character"
+
+[palettes.everforest]
+bg = '#2D353B'
+surface = '#343F44'
+border = '#475258'
+fg = '#D3C6AA'
+muted = '#7A8478'
+green = '#A7C080'
+aqua = '#83C092'
+blue = '#7FBBB3'
+red = '#E67E80'
+orange = '#E69875'
+yellow = '#DBBC7F'
+purple = '#D699B6'
+
+[os]
+disabled = false
+style = "fg:bg bg:green bold"
+
+[os.symbols]
+Arch = " "
+Ubuntu = " "
+Fedora = " "
+Macos = " "
+Linux = " "
+Windows = " "
+
+[directory]
+style = "fg:fg bg:surface"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[git_branch]
+symbol = ""
+style = "fg:green bg:border"
+format = "[ $symbol $branch ]($style)"
+
+[git_status]
+style = "fg:fg bg:border"
+format = "[$all_status$ahead_behind]($style)"
+ahead = "[⇡${count}](fg:aqua bg:border) "
+behind = "[⇣${count}](fg:red bg:border) "
+diverged = "[⇅ ⇡${ahead_count} ⇣${behind_count}](fg:red bg:border) "
+modified = "[!${count}](fg:orange bg:border) "
+staged = "[+${count}](fg:green bg:border) "
+untracked = "[?${count}](fg:muted bg:border) "
+stashed = "[*${count}](fg:yellow bg:border) "
+deleted = "[✘${count}](fg:red bg:border) "
+
+[nodejs]
+style = "fg:green bg:border"
+format = "[  $version ]($style)"
+detect_files = ["package.json", ".node-version"]
+
+[python]
+style = "fg:yellow bg:border"
+format = "[  $version ]($style)"
+
+[rust]
+style = "fg:orange bg:border"
+format = "[  $version ]($style)"
+
+[golang]
+style = "fg:blue bg:border"
+format = "[  $version ]($style)"
+
+[docker_context]
+style = "fg:blue bg:border"
+format = "[ 󰡨 $context ]($style)"
+only_with_files = true
+
+[cmd_duration]
+style = "fg:muted bg:surface"
+format = "[ 󰅐 $duration ]($style)"
+min_time = 2_000
+
+[time]
+disabled = false
+style = "fg:bg bg:green bold"
+format = "[ $time ]($style)"
+time_format = "%H:%M"
+
+[character]
+success_symbol = "[❯](bold fg:green)"
+error_symbol = "[❯](bold fg:red)"
+vimcmd_symbol = "[❮](bold fg:blue)"
+vimcmd_replace_symbol = "[❮](bold fg:purple)"
+vimcmd_visual_symbol = "[❮](bold fg:yellow)"
+{{- end }}

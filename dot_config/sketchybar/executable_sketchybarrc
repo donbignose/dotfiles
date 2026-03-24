@@ -24,8 +24,8 @@ sketchybar --bar "${bar[@]}"
 default=(
 	icon.font="SF Pro:Semibold:17.0"
 	label.font="SF Pro:Medium:13.0"
-	icon.color=$ACCENT_COLOR
-	label.color=$ACCENT_COLOR
+	icon.color=$FG_DIM
+	label.color=$FG_COLOR
 	padding_left=4
 	padding_right=4
 	background.color=$TRANSPARENT
@@ -53,6 +53,7 @@ volume right
 spacer right 3
 battery right
 cpu right
+caffeine right
 spacer right 4
 docker right
 spacer right 5

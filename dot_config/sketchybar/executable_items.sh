@@ -56,8 +56,8 @@ battery() {
 		--add item battery.time popup.battery \
 		--set battery.time \
 		icon=󰁫 \
-		icon.color=$ACCENT_COLOR \
-		label.color=$ACCENT_COLOR \
+		icon.color=$FG_DIM \
+		label.color=$FG_COLOR \
 		label.font="SF Pro:Medium:13.0" \
 		background.drawing=off
 
@@ -67,7 +67,7 @@ battery() {
 		icon=󱈏 \
 		icon.color=$ACCENT_YELLOW \
 		label="Low Power Mode" \
-		label.color=$ACCENT_COLOR \
+		label.color=$FG_COLOR \
 		label.font="SF Pro:Medium:13.0" \
 		background.drawing=off \
 		click_script="$PLUGIN_DIR/battery_toggle_lpm.sh"
@@ -80,6 +80,17 @@ cpu() {
 		update_freq=4 \
 		icon=󰍛 \
 		script="$PLUGIN_DIR/cpu.sh"
+}
+
+caffeine() {
+	sketchybar \
+		--add item caffeine "$1" \
+		--subscribe caffeine mouse.clicked \
+		--set caffeine \
+		update_freq=30 \
+		icon=󰒲 \
+		label.drawing=off \
+		script="$PLUGIN_DIR/caffeine.sh"
 }
 
 wifi() {
@@ -172,7 +183,7 @@ media() {
 		--subscribe media media_change mouse.scrolled \
 		--set media \
 		update_freq=5 \
-		label.color=$ACCENT_COLOR \
+		label.color=$FG_COLOR \
 		label.max_chars=30 \
 		scroll_texts=on \
 		icon=󰎈 \
@@ -200,7 +211,7 @@ apply_pills() {
 	sketchybar --add bracket audio_pill volume \
 		--set audio_pill "${PILL[@]}"
 
-	sketchybar --add bracket power_pill battery cpu \
+	sketchybar --add bracket power_pill battery cpu caffeine \
 		--set power_pill "${PILL[@]}"
 
 	sketchybar --add bracket docker_pill docker \

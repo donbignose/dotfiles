@@ -20,7 +20,7 @@ update() {
 
 	if [ -n "$CHARGING" ]; then
 		ICON="󰂄"
-		COLOR=$ACCENT_GREEN
+		COLOR=$ACCENT_COLOR
 	fi
 
 	sketchybar --set "$NAME" icon="$ICON" label="${PERCENTAGE}%" icon.color="${COLOR:-$ACCENT_COLOR}"
