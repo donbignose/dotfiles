@@ -19,4 +19,10 @@ copy-on-select = clipboard
 confirm-close-surface = false
 
 macos-titlebar-style = hidden
-macos-option-as-alt = true
+macos-option-as-alt = left
+
+# Quake-style dropdown terminal (Super+Minus, like pyprland on Linux)
+keybind = global:cmd+§=toggle_quick_terminal
+quick-terminal-position = top
+quick-terminal-screen = main
+quick-terminal-animation-duration = 0.15

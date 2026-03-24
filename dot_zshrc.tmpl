@@ -26,9 +26,12 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*:descriptions' format '[%d]'
 zstyle ':completion:*' group-name ''
 
-# ── Vi mode ──────────────────────────────────────────────────
-bindkey -v
-export KEYTIMEOUT=1
+# ── Emacs keybinds (Ctrl+a/e/w etc.) ────────────────────────
+bindkey -e
+# Free Alt+number for typing special characters (|, #, etc.)
+for k in 0 1 2 3 4 5 6 7 8 9; do
+  bindkey -r "^[$k"
+done
 
 # ── History search (up/down arrow prefix matching) ───────────
 autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
