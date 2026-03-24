@@ -54,6 +54,7 @@ volume right
 spacer right 3
 battery right
 caffeine right
+brew_updates right
 spacer right 4
 docker right
 spacer right 5

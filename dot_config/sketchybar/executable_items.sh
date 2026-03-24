@@ -101,6 +101,17 @@ cpu() {
 		script="$PLUGIN_DIR/cpu.sh"
 }
 
+brew_updates() {
+	sketchybar \
+		--add item brew_updates "$1" \
+		--subscribe brew_updates mouse.clicked \
+		--set brew_updates \
+		update_freq=1800 \
+		icon=󰏗 \
+		script="$PLUGIN_DIR/brew_updates.sh" \
+		click_script="$PLUGIN_DIR/brew_upgrade.sh"
+}
+
 caffeine() {
 	sketchybar \
 		--add item caffeine "$1" \
@@ -229,7 +240,7 @@ apply_pills() {
 	sketchybar --add bracket audio_pill volume \
 		--set audio_pill "${PILL[@]}"
 
-	sketchybar --add bracket power_pill battery caffeine \
+	sketchybar --add bracket power_pill battery caffeine brew_updates \
 		--set power_pill "${PILL[@]}"
 
 	sketchybar --add bracket docker_pill docker \
