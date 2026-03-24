@@ -6,6 +6,8 @@ PILL=(
 	background.corner_radius=12
 	background.height=30
 	background.drawing=on
+	background.border_color=$ACCENT_COLOR
+	background.border_width=1
 	blur_radius=30
 )
 
@@ -17,6 +19,23 @@ spacer() {
 		background.drawing=off \
 		icon.drawing=off \
 		label.drawing=off
+}
+
+power() {
+	sketchybar \
+		--add item power "$1" \
+		--subscribe power mouse.clicked mouse.exited.global \
+		--set power \
+		icon=⏻ \
+		icon.font="SF Pro:Bold:17.0" \
+		icon.color=$ACCENT_COLOR \
+		label.drawing=off \
+		popup.align=right \
+		popup.background.color=$BAR_COLOR \
+		popup.background.corner_radius=8 \
+		popup.background.border_color=$ACCENT_COLOR \
+		popup.background.border_width=1 \
+		script="$PLUGIN_DIR/power.sh"
 }
 
 datetime() {
@@ -46,9 +65,9 @@ battery() {
 		--set battery \
 		update_freq=120 \
 		popup.align=right \
-		popup.background.color=$ITEM_BG_COLOR \
+		popup.background.color=$BAR_COLOR \
 		popup.background.corner_radius=8 \
-		popup.background.border_color=$MUTED_COLOR \
+		popup.background.border_color=$ACCENT_COLOR \
 		popup.background.border_width=1 \
 		script="$PLUGIN_DIR/battery.sh"
 
@@ -112,9 +131,9 @@ bluetooth() {
 		update_freq=30 \
 		icon=󰂯 \
 		popup.align=right \
-		popup.background.color=$ITEM_BG_COLOR \
+		popup.background.color=$BAR_COLOR \
 		popup.background.corner_radius=8 \
-		popup.background.border_color=$MUTED_COLOR \
+		popup.background.border_color=$ACCENT_COLOR \
 		popup.background.border_width=1 \
 		script="$PLUGIN_DIR/bluetooth.sh"
 }
@@ -127,9 +146,9 @@ docker() {
 		update_freq=10 \
 		icon=󰡨 \
 		popup.align=right \
-		popup.background.color=$ITEM_BG_COLOR \
+		popup.background.color=$BAR_COLOR \
 		popup.background.corner_radius=8 \
-		popup.background.border_color=$MUTED_COLOR \
+		popup.background.border_color=$ACCENT_COLOR \
 		popup.background.border_width=1 \
 		popup.height=25 \
 		script="$PLUGIN_DIR/docker.sh"
@@ -192,6 +211,8 @@ media() {
 		background.corner_radius=12 \
 		background.height=30 \
 		background.drawing=on \
+		background.border_color=$ACCENT_COLOR \
+		background.border_width=1 \
 		script="$PLUGIN_DIR/media.sh" \
 		click_script="$PLUGIN_DIR/media_click.sh"
 }
@@ -202,18 +223,18 @@ apply_pills() {
 		--set front_app_pill "${PILL[@]}" \
 		background.color=$ACCENT_COLOR
 
-	sketchybar --add bracket datetime_pill datetime \
-		--set datetime_pill "${PILL[@]}"
-
 	sketchybar --add bracket network_pill wifi bluetooth \
 		--set network_pill "${PILL[@]}"
 
 	sketchybar --add bracket audio_pill volume \
 		--set audio_pill "${PILL[@]}"
 
-	sketchybar --add bracket power_pill battery cpu caffeine \
+	sketchybar --add bracket power_pill battery caffeine \
 		--set power_pill "${PILL[@]}"
 
 	sketchybar --add bracket docker_pill docker \
 		--set docker_pill "${PILL[@]}"
+
+	sketchybar --add bracket datetime_power_pill datetime power \
+		--set datetime_power_pill "${PILL[@]}"
 }

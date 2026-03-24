@@ -44,6 +44,7 @@ spaces left
 front_app left
 
 # ── Right (ordered right-to-left) ────────────────────────────
+power right
 datetime right
 spacer right 1
 wifi right
@@ -52,7 +53,6 @@ spacer right 2
 volume right
 spacer right 3
 battery right
-cpu right
 caffeine right
 spacer right 4
 docker right
