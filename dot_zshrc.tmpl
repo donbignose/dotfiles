@@ -98,6 +98,9 @@ function y() {
 alias cc="claude"
 alias ccr="claude --continue"
 
+# Tmux (attach to existing session or create new one)
+t() { tmux new-session -A -s "${1:-main}"; }
+
 # System
 alias ..="cd .."
 alias ...="cd ../.."

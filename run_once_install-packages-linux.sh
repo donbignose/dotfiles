@@ -28,7 +28,7 @@ if [[ "$PM" == "pacman" ]]; then
     PACKAGES=(
         # Window manager & Wayland
         hyprland
-        swww
+        awww
         hyprlock
         hypridle
         waybar
