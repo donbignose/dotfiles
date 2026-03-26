@@ -29,6 +29,7 @@
 		"format-window-separator": " ",
 		"window-rewrite-default": "",
 		"window-rewrite": {
+			"com.mitchellh.ghostty": "󰊠",
 			"kitty": "",
 			"zen": "󰈹",
 			"org.mozilla.Thunderbird": "󰇮",

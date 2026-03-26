@@ -9,6 +9,12 @@ set -euo pipefail
 # Only run on Linux
 [[ "$(uname)" != "Linux" ]] && exit 0
 
+# Require interactive sudo — skip silently during non-interactive chezmoi runs
+if ! sudo -v 2>/dev/null; then
+    echo "⚠ No sudo access — run manually: ~/.local/share/chezmoi/run_once_install-packages-linux.sh"
+    exit 0
+fi
+
 # Detect package manager
 if command -v pacman &>/dev/null; then
     PM="pacman"

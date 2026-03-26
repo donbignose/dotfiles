@@ -4,7 +4,11 @@ theme = Vesper
 theme = Everforest Dark Hard
 {{- end }}
 font-family = JetBrainsMono Nerd Font
+{{ if eq .chezmoi.os "darwin" -}}
 font-size = 14
+{{- else -}}
+font-size = 11
+{{- end }}
 font-feature = -calt
 font-feature = -liga
 
