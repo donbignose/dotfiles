@@ -1,5 +1,5 @@
 #!/bin/bash
-# Wallpaper Switcher via Rofi — supports images and animated GIFs via swww
+# Wallpaper Switcher via Rofi — supports images and animated GIFs via awww
 
 WALLPAPER_DIR="$HOME/Pictures/Wallpapers"
 THUMB_DIR="$HOME/.cache/wallpaper-thumbs"
@@ -33,6 +33,6 @@ CHOICE=$(echo -en "$ENTRIES" | rofi -dmenu -p "󰂫" -show-icons -theme-str 'win
 
 SELECTED="$WALLPAPER_DIR/$CHOICE"
 
-swww img "$SELECTED" --transition-type grow --transition-pos "$(hyprctl cursorpos)" --transition-duration 2
+awww img "$SELECTED" --transition-type grow --transition-pos "$(hyprctl cursorpos)" --transition-duration 2
 
 notify-send "Wallpaper changed" "$CHOICE" -i preferences-desktop-wallpaper
