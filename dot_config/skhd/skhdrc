@@ -40,10 +40,6 @@ cmd + ctrl - l : yabai -m window --warp east
 cmd + shift - s : yabai -m window --display west; yabai -m display --focus west;
 cmd + shift - g : yabai -m window --display east; yabai -m display --focus east;
 
-# move window to prev and next space (follow focus)
-cmd + shift - p : yabai -m window --space prev; yabai -m space --focus prev; yabai -m window --focus recent
-cmd + shift - n : yabai -m window --space next; yabai -m space --focus next; yabai -m window --focus recent
-
 # move window to space # (follow focus)
 cmd + shift - 1 : yabai -m window --space 1; yabai -m space --focus 1; yabai -m window --focus recent
 cmd + shift - 2 : yabai -m window --space 2; yabai -m space --focus 2; yabai -m window --focus recent
