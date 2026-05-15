@@ -55,6 +55,9 @@ FORMULAE=(
     p7zip
     poppler
     imagemagick
+
+    # Spotify customization
+    spicetify-cli
 )
 
 echo "Installing formulae..."
@@ -81,6 +84,17 @@ fi
 CASKS=(
     ghostty
     font-jetbrains-mono-nerd-font
+
+    # Editors
+    zed
+
+    # Browsers
+    zen-browser
+
+    # Apps
+    docker
+    thunderbird
+    spotify
 )
 
 echo "Installing casks..."
