@@ -75,7 +75,7 @@ fi
 
 # ── Casks ────────────────────────────────────────────────────
 CASKS=(
-    kitty
+    ghostty
     font-jetbrains-mono-nerd-font
 )
 

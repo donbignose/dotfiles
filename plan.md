@@ -224,7 +224,7 @@ brew install koekeishiya/formulae/yabai
 brew install koekeishiya/formulae/skhd
 
 # ── Casks ────────────────────────────────────────────────────
-brew install --cask kitty
+brew install --cask ghostty
 
 # ── TPM (tmux plugin manager) ────────────────────────────────
 if [[ ! -d "$HOME/.tmux/plugins/tpm" ]]; then
