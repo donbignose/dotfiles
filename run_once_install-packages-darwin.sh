@@ -64,6 +64,10 @@ brew install "${FORMULAE[@]}"
 echo "Installing skhd..."
 brew install koekeishiya/formulae/skhd
 
+echo "Installing sketchybar..."
+brew tap FelixKratz/formulae
+brew install sketchybar
+
 # Install yabai via official script (fixed path, permissions persist across upgrades)
 if ! command -v yabai &>/dev/null; then
     echo "Installing yabai via official installer..."
