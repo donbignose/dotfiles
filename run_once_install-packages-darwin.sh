@@ -84,6 +84,7 @@ fi
 CASKS=(
     ghostty
     font-jetbrains-mono-nerd-font
+    font-sketchybar-app-font
 
     # Editors
     zed
